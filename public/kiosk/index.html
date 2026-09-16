@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sacar turno</title>
+  <link rel="stylesheet" href="/shared.css" />
+  <style>
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .service-btn {
+      padding: 2rem 1rem;
+      font-size: 1.3rem;
+      border-radius: var(--radius);
+    }
+    .ticket-view {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .ticket-code {
+      font-size: 5rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h1 id="business-name">Sacar turno</h1>
+    <a href="/" class="muted" style="text-decoration:none">Inicio</a>
+  </div>
+  <div class="container">
+    <div id="picker" class="card">
+      <h2>Elegi el servicio que necesitas</h2>
+      <div id="services" class="services"></div>
+      <p class="error-msg" id="error"></p>
+    </div>
+    <div id="ticketView" class="card ticket-view" style="display:none">
+      <p class="muted">Tu turno es</p>
+      <div class="ticket-code" id="ticketCode">A-000</div>
+      <p id="ticketService" class="muted"></p>
+      <p class="muted">Esperando en fila: <strong id="ticketPending">0</strong></p>
+      <button id="newTicketBtn" class="secondary" style="margin-top:1.5rem">Sacar otro turno</button>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/kiosk/kiosk.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Administracion</title>
+  <link rel="stylesheet" href="/shared.css" />
+  <style>
+    .login-box {
+      max-width: 340px;
+      margin: 3rem auto;
+      text-align: center;
+    }
+    .login-box input {
+      width: 100%;
+      margin: 1rem 0;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--panel-light);
+      gap: 0.75rem;
+    }
+    .row .name { flex: 1; }
+    .row input[type="text"] { width: 100%; }
+    .new-form {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .new-form input { flex: 1; min-width: 120px; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h1 id="business-name">Administracion</h1>
+    <div>
+      <button id="logoutBtn" class="ghost" style="display:none">Salir</button>
+    </div>
+  </div>
+  <div class="container">
+    <div id="loginView" class="login-box card">
+      <h2>Ingreso de administracion</h2>
+      <input id="pinInput" type="password" inputmode="numeric" placeholder="PIN" />
+      <p class="error-msg" id="loginError"></p>
+      <button id="loginBtn">Ingresar</button>
+    </div>
+
+    <div id="adminView" style="display:none">
+      <div class="card">
+        <h2>Nombre del local</h2>
+        <div style="display:flex;gap:0.5rem">
+          <input id="businessNameInput" type="text" style="flex:1" />
+          <button id="saveBusinessBtn">Guardar</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Servicios</h2>
+        <p class="muted" style="font-size:0.85rem">El prefijo se usa para el numero de turno, por ejemplo A-001.</p>
+        <div id="servicesList"></div>
+        <div class="new-form">
+          <input id="newServiceName" type="text" placeholder="Nombre del servicio" />
+          <input id="newServicePrefix" type="text" placeholder="Prefijo (ej: A)" maxlength="3" style="max-width:100px" />
+          <button id="addServiceBtn">Agregar</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Puestos</h2>
+        <div id="countersList"></div>
+        <div class="new-form">
+          <input id="newCounterName" type="text" placeholder="Nombre del puesto" />
+          <button id="addCounterBtn">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

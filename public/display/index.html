@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ahora atendiendo</title>
+  <link rel="stylesheet" href="/shared.css" />
+  <style>
+    body { overflow: hidden; }
+    .display-wrap {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .header {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--panel);
+      border-bottom: 1px solid var(--panel-light);
+    }
+    .header h1 { margin: 0; font-size: 1.8rem; }
+    .clock { font-size: 1.4rem; color: var(--muted); }
+    .main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem 2rem;
+      overflow: hidden;
+    }
+    .calling-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      align-content: start;
+    }
+    .calling-card {
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      border: 2px solid var(--panel-light);
+    }
+    .calling-card.flash {
+      border-color: var(--accent);
+      animation: flash 1.4s ease-in-out 2;
+    }
+    @keyframes flash {
+      0%, 100% { background: var(--panel); }
+      50% { background: var(--accent-dark); }
+    }
+    .calling-card .code {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin: 0.4rem 0;
+    }
+    .calling-card .counter {
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+    .history {
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      overflow-y: auto;
+    }
+    .history h3 { margin-top: 0; }
+    .history-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--panel-light);
+      color: var(--muted);
+    }
+    .empty {
+      color: var(--muted);
+      text-align: center;
+      padding: 3rem 1rem;
+      grid-column: 1 / -1;
+    }
+  </style>
+</head>
+<body>
+  <div class="display-wrap">
+    <div class="header">
+      <h1 id="business-name">Ahora atendiendo</h1>
+      <div class="clock" id="clock"></div>
+    </div>
+    <div class="main">
+      <div class="calling-grid" id="callingGrid">
+        <div class="empty">Todavia no hay turnos en atencion</div>
+      </div>
+      <div class="history">
+        <h3>Ultimos atendidos</h3>
+        <div id="historyList"></div>
+      </div>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/display/display.js"></script>
+</body>
+</html>
