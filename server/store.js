@@ -8,7 +8,7 @@ function defaultData() {
   return {
     business: { name: 'Mi Local' },
     services: [
-      { id: crypto.randomUUID(), name: 'Atencion general', prefix: 'A', active: true },
+      { id: crypto.randomUUID(), name: 'Atención general', prefix: 'A', active: true },
     ],
     counters: [
       { id: crypto.randomUUID(), name: 'Puesto 1', active: true },
@@ -42,8 +42,8 @@ function save(data) {
   fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
 }
 
-// Node ejecuta este modulo en un unico hilo y fs.*Sync bloquea el event
-// loop hasta terminar, asi que una lectura+escritura no puede intercalarse
+// Node ejecuta este módulo en un único hilo y fs.*Sync bloquea el event
+// loop hasta terminar, así que una lectura+escritura no puede intercalarse
 // con otra: no hace falta un lock adicional para evitar condiciones de carrera.
 function transaction(fn) {
   const data = load();

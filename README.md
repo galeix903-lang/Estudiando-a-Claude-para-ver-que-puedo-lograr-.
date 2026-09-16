@@ -1,30 +1,30 @@
 # Sistema de llamadas
 
-Sistema de turnos (tipo "toma numero / ahora atendemos") reutilizable para cualquier
-local: panaderia, banco, consultorio, oficina publica, etc. No tiene nada
-hardcodeado del rubro: los servicios y los puestos de atencion se configuran
-desde la administracion.
+Sistema de turnos (tipo "toma número / ahora atendemos") reutilizable para
+cualquier local: panadería, banco, consultorio, oficina pública, etc. No
+tiene nada fijado al rubro: los servicios y los puestos de atención se
+configuran desde la administración.
 
 ## Pantallas
 
 - **`/kiosk`** — el cliente elige el servicio que necesita y saca un turno
   (por ejemplo `A-014`).
-- **`/panel`** — el personal inicia sesion con un PIN, elige su puesto y
-  llama al siguiente turno, lo re-anuncia, lo finaliza o lo marca como
-  "no se presento".
-- **`/display`** — pantalla publica (TV, monitor) que muestra que turno
-  esta siendo atendido en cada puesto, con un historial de los ultimos
-  atendidos. Anuncia cada turno con un sonido y por voz (sintesis de voz
+- **`/panel`** — el personal inicia sesión con un PIN, elige su puesto y
+  llama al siguiente turno, lo vuelve a anunciar, lo finaliza o lo marca
+  como "no se presentó".
+- **`/display`** — pantalla pública (TV, monitor) que muestra qué turno se
+  está atendiendo en cada puesto, con un historial de los últimos
+  atendidos. Anuncia cada turno con un sonido y por voz (síntesis de voz
   del navegador).
-- **`/admin`** — el encargado del local inicia sesion con un PIN distinto
+- **`/admin`** — el encargado del local inicia sesión con un PIN distinto
   y configura el nombre del local, los servicios (con su prefijo, ej. `A`,
-  `B`) y los puestos de atencion.
+  `B`) y los puestos de atención.
 
-Todo se sincroniza en tiempo real entre pantallas via WebSocket
-(Socket.IO): cuando el personal llama a un turno, la pantalla publica lo
+Todo se sincroniza en tiempo real entre pantallas vía WebSocket
+(Socket.IO): cuando el personal llama a un turno, la pantalla pública lo
 muestra al instante sin recargar.
 
-## Como correrlo
+## Cómo ponerlo en marcha
 
 ```bash
 npm install
@@ -32,32 +32,32 @@ cp .env.example .env   # y edita los PIN
 npm start
 ```
 
-Por defecto queda en `http://localhost:3000`. Abri `/kiosk`, `/panel`,
-`/display` y `/admin` en las pantallas o dispositivos que corresponda
-(por ejemplo el kiosco en una tablet en el mostrador, la pantalla publica
-en una TV, y el panel en la computadora de cada puesto).
+Por defecto queda en `http://localhost:3000`. Abre `/kiosk`, `/panel`,
+`/display` y `/admin` en las pantallas o dispositivos que correspondan
+(por ejemplo el kiosco en una tablet en el mostrador, la pantalla pública
+en una TV, y el panel en el ordenador de cada puesto).
 
-## Configuracion
+## Configuración
 
 Variables de entorno (`.env`, ver `.env.example`):
 
-- `PORT`: puerto del servidor (default `3000`).
-- `STAFF_PIN`: PIN para entrar al panel de atencion.
-- `ADMIN_PIN`: PIN para entrar a la administracion.
-- `SESSION_SECRET`: clave para firmar la cookie de sesion.
+- `PORT`: puerto del servidor (por defecto `3000`).
+- `STAFF_PIN`: PIN para entrar al panel de atención.
+- `ADMIN_PIN`: PIN para entrar a la administración.
+- `SESSION_SECRET`: clave para firmar la cookie de sesión.
 
-Los datos (nombre del local, servicios, puestos y turnos del dia) se
-guardan en `data/db.json`, que se crea automaticamente la primera vez que
-arranca el servidor con un servicio y un puesto de ejemplo. Los numeros
-de turno se reinician todos los dias por servicio (`A-001`, `A-002`, ...).
+Los datos (nombre del local, servicios, puestos y turnos del día) se
+guardan en `data/db.json`, que se crea automáticamente la primera vez que
+arranca el servidor con un servicio y un puesto de ejemplo. Los números
+de turno se reinician todos los días por servicio (`A-001`, `A-002`, ...).
 
-## Reutilizar para otro local
+## Reutilizarlo para otro local
 
-No hace falta tocar el codigo: desde `/admin` se cambia el nombre del
-negocio, se agregan/borran/desactivan servicios (cada uno con su prefijo
-de turno) y puestos de atencion. El personal elige que servicios atiende
-cada vez que entra al panel, asi que un mismo local puede tener varios
-puestos atendiendo distintas colas en simultaneo.
+No hace falta tocar el código: desde `/admin` se cambia el nombre del
+negocio, se añaden, borran o desactivan servicios (cada uno con su
+prefijo de turno) y puestos de atención. El personal elige qué servicios
+atiende cada vez que entra al panel, así que un mismo local puede tener
+varios puestos atendiendo colas distintas a la vez.
 
 ## Estructura
 
@@ -67,7 +67,7 @@ server/           API en Express + Socket.IO
   store.js         persistencia en data/db.json
 public/
   kiosk/           sacar turno
-  panel/           atencion del personal
-  display/         pantalla publica
-  admin/           configuracion del local
+  panel/           atención del personal
+  display/         pantalla pública
+  admin/           configuración del local
 ```

@@ -146,7 +146,7 @@ function renderCurrent() {
     actionsEl.appendChild(makeBtn('No se presento', 'danger', noShowCurrent));
   } else {
     currentCode.textContent = '--';
-    currentService.textContent = 'Sin turno en atencion';
+    currentService.textContent = 'Sin turno en atención';
     actionsEl.innerHTML = '';
     actionsEl.appendChild(makeBtn('Llamar siguiente', '', callNext));
   }

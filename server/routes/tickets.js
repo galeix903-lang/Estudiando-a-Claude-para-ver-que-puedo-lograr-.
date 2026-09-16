@@ -65,7 +65,7 @@ router.post('/', (req, res) => {
     data.tickets.push(ticket);
     return { ticket, state: publicState(data) };
   });
-  if (!result) return res.status(400).json({ error: 'Servicio invalido' });
+  if (!result) return res.status(400).json({ error: 'Servicio inválido' });
   req.app.get('broadcast')('queue:updated', result.state);
   res.status(201).json(result.ticket);
 });
@@ -83,7 +83,7 @@ router.post('/next', requireStaff, (req, res) => {
   const { counterId, serviceIds } = req.body || {};
   const result = transaction((data) => {
     const counter = data.counters.find((c) => c.id === counterId);
-    if (!counter) return { error: 'Puesto invalido' };
+    if (!counter) return { error: 'Puesto inválido' };
     const candidates = ticketsOfToday(data)
       .filter((t) => t.status === 'pending')
       .filter((t) => !serviceIds || !serviceIds.length || serviceIds.includes(t.serviceId))
@@ -118,7 +118,7 @@ router.post('/:id/complete', requireStaff, (req, res) => {
     ticket.completedAt = new Date().toISOString();
     return { ticket, state: publicState(data) };
   });
-  if (!result) return res.status(404).json({ error: 'Turno no encontrado o no esta en atencion' });
+  if (!result) return res.status(404).json({ error: 'Turno no encontrado o no está en atención' });
   req.app.get('broadcast')('ticket:done', result.ticket);
   req.app.get('broadcast')('queue:updated', result.state);
   res.json(result.ticket);
@@ -132,7 +132,7 @@ router.post('/:id/no-show', requireStaff, (req, res) => {
     ticket.completedAt = new Date().toISOString();
     return { ticket, state: publicState(data) };
   });
-  if (!result) return res.status(404).json({ error: 'Turno no encontrado o no esta en atencion' });
+  if (!result) return res.status(404).json({ error: 'Turno no encontrado o no está en atención' });
   req.app.get('broadcast')('ticket:done', result.ticket);
   req.app.get('broadcast')('queue:updated', result.state);
   res.json(result.ticket);

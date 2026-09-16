@@ -33,12 +33,12 @@ router.get('/session', (req, res) => {
 
 function requireStaff(req, res, next) {
   if (req.session.role === 'staff' || req.session.role === 'admin') return next();
-  res.status(401).json({ error: 'Necesitas iniciar sesion como personal' });
+  res.status(401).json({ error: 'Necesitas iniciar sesión como personal' });
 }
 
 function requireAdmin(req, res, next) {
   if (req.session.role === 'admin') return next();
-  res.status(401).json({ error: 'Necesitas iniciar sesion como administrador' });
+  res.status(401).json({ error: 'Necesitas iniciar sesión como administrador' });
 }
 
 module.exports = { router, requireStaff, requireAdmin };

@@ -76,7 +76,7 @@ async function loadAll() {
     api('/api/counters'),
   ]);
   businessNameInput.value = business.name || '';
-  document.getElementById('business-name').textContent = business.name || 'Administracion';
+  document.getElementById('business-name').textContent = business.name || 'Administración';
   renderServices(services);
   renderCounters(counters);
 }

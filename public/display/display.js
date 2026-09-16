@@ -7,7 +7,7 @@ let counters = [];
 let services = [];
 
 function updateClock() {
-  clockEl.textContent = new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
+  clockEl.textContent = new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
 }
 setInterval(updateClock, 1000 * 15);
 updateClock();
@@ -28,7 +28,7 @@ function renderState(state) {
   if (state.business && state.business.name) businessNameEl.textContent = state.business.name;
 
   if (!state.calling || !state.calling.length) {
-    callingGrid.innerHTML = '<div class="empty">Todavia no hay turnos en atencion</div>';
+    callingGrid.innerHTML = '<div class="empty">Todavía no hay turnos en atención</div>';
   } else {
     callingGrid.innerHTML = '';
     state.calling.forEach((ticket) => {
@@ -73,11 +73,11 @@ function beepThenSpeak(text) {
     osc.stop(ctx.currentTime + 0.35);
     osc.onended = () => ctx.close();
   } catch (e) {
-    // el navegador puede bloquear audio sin interaccion previa; se ignora
+    // el navegador puede bloquear audio sin interacción previa; se ignora
   }
   if ('speechSynthesis' in window) {
     const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = 'es-AR';
+    utter.lang = 'es-ES';
     utter.rate = 0.95;
     setTimeout(() => window.speechSynthesis.speak(utter), 450);
   }

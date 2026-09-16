@@ -1,7 +1,7 @@
 {
   "name": "sistema-de-llamadas",
   "version": "1.0.0",
-  "description": "Sistema de llamado de turnos reutilizable para cualquier local (kiosco, panel de atencion, pantalla publica y administracion).",
+  "description": "Sistema de llamado de turnos reutilizable para cualquier local (kiosco, panel de atención, pantalla pública y administración).",
   "private": true,
   "main": "server/index.js",
   "scripts": {
