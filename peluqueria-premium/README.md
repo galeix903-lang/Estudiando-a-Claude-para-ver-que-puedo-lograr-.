@@ -46,14 +46,26 @@ Busca **"NOIR"** / **"NOIR Studio"** en `index.html` (título, cabecera,
 footer, JSON-LD) y sustitúyelo por el nombre real del negocio.
 
 ### 2. Color de marca
-Todo el color pasa por las variables de `css/variables.css`. Para adaptar
-la paleta a otra marca basta con tocar un puñado de valores, principalmente:
+Identidad actual: **beauty premium**, delicada y femenina — rosa
+empolvado, vainilla y blanco como base, con un marrón cálido reservado a
+pequeños detalles (botones, textos importantes, iconos, bordes,
+navegación, hover). El marrón nunca se usa como fondo de sección grande.
+
+Todo el color pasa por las variables de `css/variables.css`:
 
 ```css
---c-accent: #9C7A42;      /* color de acento (subrayados, iconos, precios) */
---c-accent-soft: #C6AD82;
---c-dark: #100E0B;         /* fondo de secciones oscuras (hero, footer, CTA) */
+--c-white: #FFFFFF;
+--c-rose: #F3DDE1;       /* rosa muy claro — color principal, fondos de sección */
+--c-vanilla: #F8F1DF;    /* vainilla claro — segundo color principal */
+--c-brown: #6B5145;      /* marrón cálido — uso mínimo y deliberado */
+--c-brown-soft: #A88F82; /* marrón claro secundario, texto suave */
 ```
+
+Las secciones alternan entre blanco, rosa y vainilla (ver los `background`
+en `css/sections.css`, sección por sección) para crear ritmo visual sin
+saturar. La sección "Colección" se mantiene siempre en blanco a propósito:
+es el fondo neutro que deja que los colores de cada estilo sean los
+protagonistas.
 
 ### 3. Textos y datos marcados como placeholder
 Busca en `index.html` las marcas `[PERSONALIZAR]` y los textos entre
