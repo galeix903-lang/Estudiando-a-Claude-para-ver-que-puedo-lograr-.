@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="Galería 08">
+  <defs>
+    <linearGradient id="g-12" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1C1813"/>
+      <stop offset="100%" stop-color="#100E0B"/>
+    </linearGradient>
+    <pattern id="n-12" width="34" height="34" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="34" stroke="rgba(251,249,245,0.055)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#g-12)"/>
+  <rect width="1200" height="1200" fill="url(#n-12)"/>
+  <rect x="0.5" y="0.5" width="1199" height="1199" fill="none" stroke="rgba(251,249,245,0.08)" stroke-width="1"/>
+  
+  <g transform="translate(600 554) scale(3.5294117647058822)" opacity="0.9" fill="none" stroke="#C6AD82" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="-14" cy="12" r="6"/>
+    <circle cx="14" cy="12" r="6"/>
+    <path d="M -10 8 L 18 -22"/>
+    <path d="M 10 8 L -18 -22"/>
+    <path d="M -18 -22 L -10 -22 M 18 -22 L 10 -22"/>
+  </g>
+  <text x="50%" y="646" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="38.4" fill="rgba(251,249,245,0.82)" letter-spacing="0.5">Galería 08</text>
+  <text x="50%" y="711.28" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="20.400000000000002" fill="rgba(251,249,245,0.4)" letter-spacing="1.5">RESULTADO FINAL · 1200×1200</text>
+</svg>
