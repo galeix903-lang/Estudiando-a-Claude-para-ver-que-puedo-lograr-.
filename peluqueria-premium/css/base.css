@@ -145,28 +145,32 @@ main > section[id] { scroll-margin-top: 5.5rem; }
 }
 .cursor.is-active { opacity: 1; }
 
-.cursor__dot,
-.cursor__ring {
+.cursor__scissors {
   position: absolute;
   top: 0; left: 0;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  color: var(--c-accent);
+  filter: drop-shadow(0 2px 5px rgba(107, 81, 69, 0.25));
+  /* La posición y la escala las anima js/cursor.js frame a frame (con su
+     propio suavizado), así que aquí no se declara transition/transform:
+     si se hiciera, una transición CSS compitiendo con una actualización
+     por JS 60 veces por segundo produce un seguimiento a tirones. */
 }
-.cursor__dot {
-  width: 5px; height: 5px;
-  background: var(--c-accent);
-  transform: translate(-50%, -50%);
+
+.cursor__blade {
+  transition: transform 0.28s var(--ease-out);
 }
-.cursor__ring {
-  width: 34px; height: 34px;
-  border: 1px solid rgba(107, 81, 69, 0.45);
-  transition: width var(--dur-fast) var(--ease-out), height var(--dur-fast) var(--ease-out),
-              border-color var(--dur-fast) var(--ease-out);
-}
-.cursor.is-hover .cursor__ring {
-  width: 52px; height: 52px;
-  border-color: var(--c-accent);
-}
+.cursor__blade--a { transform-origin: 11px 24px; }
+.cursor__blade--b { transform-origin: 19px 24px; }
+
+/* Hover sobre elementos interactivos: las tijeras se abren, invitando al clic */
+.cursor.is-hover .cursor__blade--a { transform: rotate(-10deg); }
+.cursor.is-hover .cursor__blade--b { transform: rotate(10deg); }
+
+/* Clic: un pequeño gesto de corte */
+.cursor.is-snip .cursor__blade--a { transform: rotate(16deg); transition-duration: 0.1s; }
+.cursor.is-snip .cursor__blade--b { transform: rotate(-16deg); transition-duration: 0.1s; }
 
 @media (hover: none), (pointer: coarse) {
   .cursor { display: none; }
