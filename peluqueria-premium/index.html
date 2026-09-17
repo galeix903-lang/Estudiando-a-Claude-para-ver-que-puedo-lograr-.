@@ -85,6 +85,7 @@
       <ul class="nav__list">
         <li><a href="#sobre-nosotros">Nosotros</a></li>
         <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#coleccion">Colección</a></li>
         <li><a href="#galeria">Galería</a></li>
         <li><a href="#testimonios">Opiniones</a></li>
         <li><a href="#clientes">Clientes</a></li>
@@ -107,10 +108,11 @@
     <ul class="mobile-menu__list">
       <li style="--i:0"><a href="#sobre-nosotros" data-mobile-link>Nosotros</a></li>
       <li style="--i:1"><a href="#servicios" data-mobile-link>Servicios</a></li>
-      <li style="--i:2"><a href="#galeria" data-mobile-link>Galería</a></li>
-      <li style="--i:3"><a href="#testimonios" data-mobile-link>Opiniones</a></li>
-      <li style="--i:4"><a href="#clientes" data-mobile-link>Clientes</a></li>
-      <li style="--i:5"><a href="#ubicacion" data-mobile-link>Ubicación</a></li>
+      <li style="--i:2"><a href="#coleccion" data-mobile-link>Colección</a></li>
+      <li style="--i:3"><a href="#galeria" data-mobile-link>Galería</a></li>
+      <li style="--i:4"><a href="#testimonios" data-mobile-link>Opiniones</a></li>
+      <li style="--i:5"><a href="#clientes" data-mobile-link>Clientes</a></li>
+      <li style="--i:6"><a href="#ubicacion" data-mobile-link>Ubicación</a></li>
     </ul>
   </nav>
   <a href="#reserva" class="btn btn--primary btn--block" data-mobile-link>Reservar cita</a>
@@ -235,7 +237,170 @@
     </div>
   </section>
 
-  <!-- ============ 4. GALERÍA ============ -->
+  <!-- ============ 4. COLECCIÓN ============ -->
+  <section class="collection" id="coleccion">
+    <div class="container collection__head">
+      <p class="eyebrow reveal" data-reveal>Colección</p>
+      <h2 class="reveal" data-reveal>Encuentra tu estilo</h2>
+      <p class="collection__subtitle reveal" data-reveal>Un color. Un estilo. Una nueva versión de ti.</p>
+    </div>
+
+    <div class="collection__viewport">
+      <button class="collection__arrow collection__arrow--prev" data-collection-prev aria-label="Ver estilos anteriores">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <ul class="collection__track" data-collection-track>
+        <li class="collection__item reveal reveal--x" data-reveal>
+          <button class="collection__card" data-collection-trigger
+                  data-name="Blonde" data-color="Rubio clásico" data-img="img/wig-01-blonde.svg"
+                  data-desc="Luz cálida y movimiento natural, el equilibrio de siempre.">
+            <span class="collection__img-wrap"><img src="img/wig-01-blonde.svg" alt="Peluca de estilo Blonde, rubio clásico" loading="lazy" decoding="async" width="900" height="1200"></span>
+            <span class="collection__meta">
+              <span class="collection__name">Blonde</span>
+              <span class="collection__color">Rubio clásico</span>
+            </span>
+          </button>
+        </li>
+        <li class="collection__item reveal reveal--x" data-reveal>
+          <button class="collection__card" data-collection-trigger
+                  data-name="Platinum" data-color="Rubio platino" data-img="img/wig-02-platinum.svg"
+                  data-desc="Frío, luminoso y de máximo impacto visual.">
+            <span class="collection__img-wrap"><img src="img/wig-02-platinum.svg" alt="Peluca de estilo Platinum, rubio platino" loading="lazy" decoding="async" width="900" height="1200"></span>
+            <span class="collection__meta">
+              <span class="collection__name">Platinum</span>
+              <span class="collection__color">Rubio platino</span>
+            </span>
+          </button>
+        </li>
+        <li class="collection__item reveal reveal--x" data-reveal>
+          <button class="collection__card" data-collection-trigger
+                  data-name="Honey" data-color="Rubio miel" data-img="img/wig-03-honey.svg"
+                  data-desc="Reflejos dorados y suaves, cercanos y favorecedores.">
+            <span class="collection__img-wrap"><img src="img/wig-03-honey.svg" alt="Peluca de estilo Honey, rubio miel" loading="lazy" decoding="async" width="900" height="1200"></span>
+            <span class="collection__meta">
+              <span class="collection__name">Honey</span>
+              <span class="collection__color">Rubio miel</span>
+            </span>
+          </button>
+        </li>
+        <li class="collection__item reveal reveal--x" data-reveal>
+          <button class="collection__card" data-collection-trigger
+                  data-name="Brunette" data-color="Castaño" data-img="img/wig-04-brunette.svg"
+                  data-desc="Elegancia atemporal que combina con todo.">
+            <span class="collection__img-wrap"><img src="img/wig-04-brunette.svg" alt="Peluca de estilo Brunette, castaño" loading="lazy" decoding="async" width="900" height="1200"></span>
+            <span class="collection__meta">
+              <span class="collection__name">Brunette</span>
+              <span class="collection__color">Castaño</span>
+            </span>
+          </button>
+        </li>
+        <li class="collection__item reveal reveal--x" data-reveal>
+          <button class="collection__card" data-collection-trigger
+                  data-name="Chocolate" data-color="Castaño chocolate" data-img="img/wig-05-chocolate.svg"
+                  data-desc="Profundidad envolvente con un acabado rico.">
+            <span class="collection__img-wrap"><img src="img/wig-05-chocolate.svg" alt="Peluca de estilo Chocolate, castaño chocolate" loading="lazy" decoding="async" width="900" height="1200"></span>
+            <span class="collection__meta">
+              <span class="collection__name">Chocolate</span>
+              <span class="collection__color">Castaño chocolate</span>
+            </span>
+          </button>
+        </li>
+        <li class="collection__item reveal reveal--x" data-reveal>
+          <button class="collection__card" data-collection-trigger
+                  data-name="Jet Black" data-color="Negro intenso" data-img="img/wig-06-jet-black.svg"
+                  data-desc="Máximo contraste y una actitud definida.">
+            <span class="collection__img-wrap"><img src="img/wig-06-jet-black.svg" alt="Peluca de estilo Jet Black, negro intenso" loading="lazy" decoding="async" width="900" height="1200"></span>
+            <span class="collection__meta">
+              <span class="collection__name">Jet Black</span>
+              <span class="collection__color">Negro intenso</span>
+            </span>
+          </button>
+        </li>
+        <li class="collection__item reveal reveal--x" data-reveal>
+          <button class="collection__card" data-collection-trigger
+                  data-name="Auburn" data-color="Cobrizo" data-img="img/wig-07-auburn.svg"
+                  data-desc="Calidez rojiza con mucho carácter propio.">
+            <span class="collection__img-wrap"><img src="img/wig-07-auburn.svg" alt="Peluca de estilo Auburn, cobrizo" loading="lazy" decoding="async" width="900" height="1200"></span>
+            <span class="collection__meta">
+              <span class="collection__name">Auburn</span>
+              <span class="collection__color">Cobrizo</span>
+            </span>
+          </button>
+        </li>
+        <li class="collection__item reveal reveal--x" data-reveal>
+          <button class="collection__card" data-collection-trigger
+                  data-name="Copper" data-color="Pelirrojo cobrizo" data-img="img/wig-08-copper.svg"
+                  data-desc="Vibrante e inconfundible en cualquier luz.">
+            <span class="collection__img-wrap"><img src="img/wig-08-copper.svg" alt="Peluca de estilo Copper, pelirrojo cobrizo" loading="lazy" decoding="async" width="900" height="1200"></span>
+            <span class="collection__meta">
+              <span class="collection__name">Copper</span>
+              <span class="collection__color">Pelirrojo cobrizo</span>
+            </span>
+          </button>
+        </li>
+        <li class="collection__item reveal reveal--x" data-reveal>
+          <button class="collection__card" data-collection-trigger
+                  data-name="Burgundy" data-color="Borgoña" data-img="img/wig-09-burgundy.svg"
+                  data-desc="Sofisticación intensa con un punto audaz.">
+            <span class="collection__img-wrap"><img src="img/wig-09-burgundy.svg" alt="Peluca de estilo Burgundy, color borgoña" loading="lazy" decoding="async" width="900" height="1200"></span>
+            <span class="collection__meta">
+              <span class="collection__name">Burgundy</span>
+              <span class="collection__color">Borgoña</span>
+            </span>
+          </button>
+        </li>
+        <li class="collection__item reveal reveal--x" data-reveal>
+          <button class="collection__card" data-collection-trigger
+                  data-name="Silver" data-color="Gris / plata" data-img="img/wig-10-silver.svg"
+                  data-desc="Moderno y editorial, un acabado atemporal.">
+            <span class="collection__img-wrap"><img src="img/wig-10-silver.svg" alt="Peluca de estilo Silver, gris plata" loading="lazy" decoding="async" width="900" height="1200"></span>
+            <span class="collection__meta">
+              <span class="collection__name">Silver</span>
+              <span class="collection__color">Gris / plata</span>
+            </span>
+          </button>
+        </li>
+        <li class="collection__item reveal reveal--x" data-reveal>
+          <button class="collection__card" data-collection-trigger
+                  data-name="Ash Blonde" data-color="Rubio ceniza" data-img="img/wig-11-ash-blonde.svg"
+                  data-desc="Ceniza suave con un acabado mate y actual.">
+            <span class="collection__img-wrap"><img src="img/wig-11-ash-blonde.svg" alt="Peluca de estilo Ash Blonde, rubio ceniza" loading="lazy" decoding="async" width="900" height="1200"></span>
+            <span class="collection__meta">
+              <span class="collection__name">Ash Blonde</span>
+              <span class="collection__color">Rubio ceniza</span>
+            </span>
+          </button>
+        </li>
+      </ul>
+
+      <button class="collection__arrow collection__arrow--next" data-collection-next aria-label="Ver más estilos">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <p class="placeholder-note center">[PERSONALIZAR: sustituir por fotografías reales de vuestras pelucas, mismo estilo y proporción]</p>
+  </section>
+
+  <!-- Detalle de la colección -->
+  <div class="collection-detail" data-collection-detail aria-hidden="true" role="dialog" aria-modal="true" aria-label="Detalle del estilo seleccionado">
+    <div class="collection-detail__panel">
+      <button class="collection-detail__close" data-collection-detail-close aria-label="Cerrar">✕</button>
+      <div class="collection-detail__media">
+        <img data-collection-detail-img src="" alt="">
+      </div>
+      <div class="collection-detail__body">
+        <p class="collection-detail__color" data-collection-detail-color></p>
+        <h3 data-collection-detail-name></h3>
+        <p class="collection-detail__desc" data-collection-detail-desc></p>
+        <div class="collection-detail__actions">
+          <a href="#reserva" class="btn btn--primary" data-collection-detail-close>Reservar este estilo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 5. GALERÍA ============ -->
   <section class="gallery" id="galeria">
     <div class="container">
       <header class="section-head reveal" data-reveal>
@@ -280,7 +445,7 @@
     <button class="lightbox__nav lightbox__nav--next" data-lightbox-next aria-label="Imagen siguiente">›</button>
   </div>
 
-  <!-- ============ 5. EXPERIENCIA ============ -->
+  <!-- ============ 6. EXPERIENCIA ============ -->
   <section class="experience" id="experiencia">
     <div class="experience__intro container reveal" data-reveal>
       <p class="eyebrow eyebrow--light">La experiencia</p>
@@ -310,7 +475,7 @@
     </div>
   </section>
 
-  <!-- ============ 6. TESTIMONIOS ============ -->
+  <!-- ============ 7. TESTIMONIOS ============ -->
   <section class="testimonials" id="testimonios">
     <div class="container">
       <header class="section-head reveal" data-reveal>
@@ -340,7 +505,7 @@
     </div>
   </section>
 
-  <!-- ============ 7. CLIENTES ============ -->
+  <!-- ============ 8. CLIENTES ============ -->
   <section class="clients" id="clientes">
     <div class="container">
       <header class="section-head reveal" data-reveal>
@@ -355,7 +520,7 @@
     </div>
   </section>
 
-  <!-- ============ 8. RESERVA ============ -->
+  <!-- ============ 9. RESERVA ============ -->
   <section class="booking" id="reserva">
     <div class="container booking__grid">
       <div class="booking__intro reveal" data-reveal>
@@ -429,7 +594,7 @@
     </div>
   </section>
 
-  <!-- ============ 9. UBICACIÓN ============ -->
+  <!-- ============ 10. UBICACIÓN ============ -->
   <section class="location" id="ubicacion">
     <div class="container location__grid">
       <div class="location__info reveal" data-reveal>
@@ -513,6 +678,7 @@
 <script src="js/cursor.js" defer></script>
 <script src="js/reveal.js" defer></script>
 <script src="js/gallery.js" defer></script>
+<script src="js/collection.js" defer></script>
 <script src="js/booking.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>

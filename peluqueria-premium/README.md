@@ -82,12 +82,20 @@ descuadre:
 | `about.svg` | Sección "Sobre nosotros" | 4:5 vertical |
 | `experience-1/2/3.svg` | Sección "Más que un corte" | 4:5 vertical |
 | `gallery-1…8.svg` | Galería (masonry) | variable, ver nombre del archivo |
+| `wig-01-blonde.svg` … `wig-11-ash-blonde.svg` | Sección "Encuentra tu estilo" (colección) | 3:4 vertical, **las 11 con el mismo encuadre e iluminación** |
 
 Recomendaciones: fotografías propias del local (nunca imágenes genéricas
 haciéndolas pasar por reales), formato `.jpg`/`.webp` optimizado, peso
 ideal por debajo de 300 KB por imagen. Si cambias la extensión (por
 ejemplo a `.jpg`), actualiza también el `src` correspondiente en
 `index.html`.
+
+Para la colección de pelucas en concreto, procura que las 11 fotos (o las
+que uses) compartan fondo, distancia y luz — es lo que hace que la
+colección se sienta ordenada y "de marca" en lugar de una tienda genérica.
+Cada tarjeta lleva además `data-name`, `data-color` y `data-desc` en
+`index.html`: son los textos que se muestran al abrir el detalle de cada
+estilo, y se editan ahí mismo.
 
 ### 5. WhatsApp
 En `js/booking.js`, primera línea de la función:
