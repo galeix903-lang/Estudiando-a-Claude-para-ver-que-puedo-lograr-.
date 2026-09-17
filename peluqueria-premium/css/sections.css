@@ -331,7 +331,15 @@
   .testimonials__track { grid-template-columns: 1fr; }
 }
 
-/* ============ 7. RESERVA ============ */
+/* ============ 7. CLIENTES ============ */
+.clients { padding-block: var(--section-pad); background: var(--c-bg); }
+.clients__text {
+  max-width: 62ch;
+  font-size: var(--fs-lead);
+  color: var(--c-ink-soft);
+}
+
+/* ============ 8. RESERVA ============ */
 .booking { padding-block: var(--section-pad); background: var(--c-dark); color: var(--c-cream); }
 .booking__grid {
   display: grid;
@@ -356,7 +364,7 @@
   .booking__grid { grid-template-columns: 1fr; }
 }
 
-/* ============ 8. UBICACIÓN ============ */
+/* ============ 9. UBICACIÓN ============ */
 .location { padding-block: var(--section-pad); background: var(--c-bg); }
 .location__grid {
   display: grid;
