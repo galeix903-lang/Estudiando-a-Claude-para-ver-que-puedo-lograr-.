@@ -29,13 +29,19 @@ peluqueria-premium/
 │   ├── base.css         Reset, tipografía global, utilidades, cursor
 │   ├── layout.css        Header, navegación, menú móvil, botones, formulario
 │   ├── sections.css     Estilos de cada sección
-│   └── animations.css   Keyframes y scroll-reveal
+│   ├── animations.css   Keyframes y scroll-reveal
+│   └── intro.css        Overlay de la introducción 3D (ver más abajo)
 ├── js/
 │   ├── main.js           Header dinámico, menú móvil, año del footer
 │   ├── reveal.js         Animaciones al entrar en viewport
 │   ├── gallery.js        Lightbox de la galería
+│   ├── collection.js     Carrusel de la colección + panel de detalle
 │   ├── booking.js        Validación del formulario + enlace de WhatsApp
-│   └── cursor.js         Cursor personalizado (solo escritorio)
+│   ├── cursor.js         Cursor personalizado (solo escritorio)
+│   ├── intro.js          Orquestador de la introducción (siempre se carga)
+│   ├── intro-scene.js    Escena 3D de la introducción (solo se descarga
+│   │                     si hace falta, ver más abajo)
+│   └── vendor/three.module.min.js   Three.js, autoalojado (ver más abajo)
 └── img/                  Imágenes placeholder (sustituir, ver abajo)
 ```
 
@@ -140,13 +146,60 @@ Los enlaces del footer y del formulario ("Aviso legal", "Política de
 privacidad") apuntan a `#` y deben enlazar a las páginas legales reales del
 negocio.
 
+### 10. Introducción 3D ("Entrar en la peluquería")
+Al entrar por primera vez aparece una intro a pantalla completa: un busto
+estilizado con cabello y unas tijeras (geometría 3D generada por código,
+sin modelos ni texturas), que el usuario "corta" con un clic, arrastre,
+scroll o toque — y la web hace una transición al Hero. No vuelve a
+aparecer en visitas siguientes (se recuerda en `localStorage`), tiene un
+botón **"Saltar introducción"** siempre visible y responde a `Esc`, y hay
+un enlace discreto **"Ver introducción"** en el footer para repetirla.
+
+En **móvil, dispositivos táctiles o de gama más modesta** se sustituye
+automáticamente por una versión ligera en SVG + CSS con la misma idea
+(mismo busto, mismo cabello, mismas tijeras cortando), sin cargar Three.js
+en absoluto. La lógica de decisión está al principio de `js/intro.js`
+(`shouldUseThree()`): ajusta ahí los umbrales si quieres ser más o menos
+exigente.
+
+Qué tocar para personalizarla:
+- **Colores**: la escena 3D (`js/intro-scene.js`) y la versión ligera
+  (el `<svg>` dentro de `#intro` en `index.html`) usan los mismos tonos
+  que el resto de la web (vainilla, marrón, rosa de fondo). Si cambias la
+  paleta en `css/variables.css`, actualiza también los códigos de color
+  hexadecimales de esos dos sitios (los `<canvas>`/`<svg>` no leen
+  variables CSS).
+- **Textos**: el nombre del negocio y el texto de invitación
+  ("Haz clic para entrar") están en el bloque `<div class="intro" ...>`
+  de `index.html`, justo después del `skip-link`.
+- **Duración**: `MAX_WAIT_MS` (tiempo máximo de espera sin interactuar) y
+  los tiempos de las transiciones están al principio de `js/intro.js`.
+- **Desactivarla del todo**: borra o comenta el bloque `<div class="intro" ...>`
+  en `index.html` y su `<script src="js/intro.js">`; el resto de la web
+  no depende de ella.
+
+**Sobre `js/vendor/three.module.min.js`**: es la única dependencia externa
+de toda la plantilla (el resto es HTML/CSS/JS sin librerías). Va
+autoalojada a propósito, no desde un CDN, para que la web no dependa de un
+tercero en tiempo de ejecución. Solo se descarga (mediante `import()`
+dinámico) cuando `js/intro.js` decide usar la versión 3D — en móvil, con
+`prefers-reduced-motion`, o en visitas repetidas, no se descarga nunca.
+Pesa ~670 KB sin comprimir (~165 KB con gzip/brotli, que casi cualquier
+hosting aplica automáticamente); si actualizas la librería, vuelve a
+generar el fichero con `npm install three@<versión> --prefix /tmp/three &&
+cp /tmp/three/node_modules/three/build/three.module.min.js js/vendor/`.
+
 ## Notas técnicas
 
-- **Sin dependencias ni build**: HTML/CSS/JS vanilla, fácil de mantener
-  por cualquier agencia o el propio negocio.
+- **Prácticamente sin dependencias ni build**: HTML/CSS/JS vanilla, fácil
+  de mantener por cualquier agencia o el propio negocio. La única
+  excepción es Three.js, autoalojado y usado solo por la introducción 3D
+  (ver el punto 10 de personalización) — el resto de la web no lo
+  necesita para nada.
 - **Rendimiento**: imágenes con `loading="lazy"` (excepto el hero),
-  fuentes con `font-display: swap` y solo los pesos necesarios, sin
-  librerías de animación externas (todo con CSS + `IntersectionObserver`).
+  fuentes con `font-display: swap`, sin librerías de animación externas
+  (todo con CSS + `IntersectionObserver`), y la introducción 3D con carga
+  perezosa (`import()` dinámico) solo cuando hace falta.
 - **Accesibilidad**: navegación por teclado en el menú móvil y el
   lightbox, `:focus-visible`, `prefers-reduced-motion` respetado en todas
   las animaciones, textos alternativos en imágenes.

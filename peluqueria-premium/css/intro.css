@@ -1,0 +1,223 @@
+/*
+  Introducción 3D — "Entrar en la peluquería".
+  Overlay a pantalla completa que se muestra una única vez (se recuerda
+  en localStorage). Ver js/intro.js y js/intro-scene.js.
+*/
+
+html[data-intro-active],
+html[data-intro-active] body {
+  overflow: hidden;
+  height: 100%;
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  background: var(--c-bg);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+
+.intro__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 90% at 50% 18%, var(--c-vanilla) 0%, var(--c-rose) 58%, var(--c-white) 100%);
+}
+
+.intro__logo {
+  position: relative;
+  z-index: 1;
+  font-family: var(--f-display);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  letter-spacing: 0.03em;
+  color: var(--c-ink);
+  opacity: 0;
+  transform: translateY(14px);
+  animation: intro-in 0.8s var(--ease-out) forwards;
+  animation-delay: 150ms;
+}
+.intro__logo span {
+  font-family: var(--f-body);
+  font-size: 0.55em;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-left: 0.4em;
+}
+
+.intro__scene-wrap {
+  position: relative;
+  z-index: 1;
+  width: min(62vw, 480px);
+  aspect-ratio: 1 / 1;
+  opacity: 0;
+  transform: translateY(18px) scale(0.96);
+  animation: intro-in 1s var(--ease-out) forwards;
+  animation-delay: 420ms;
+}
+
+.intro__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.1s var(--ease-out);
+  touch-action: none;
+  cursor: pointer;
+}
+.intro__canvas[data-ready] { opacity: 1; }
+
+.intro__lite {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.intro__lite svg { width: 100%; height: 100%; display: block; }
+
+.intro__lite-head {
+  transform-box: fill-box;
+  transform-origin: 50% 85%;
+  opacity: 0;
+  animation: intro-in 0.9s var(--ease-out) forwards;
+  animation-delay: 550ms;
+}
+.intro__lite-strand {
+  transform-box: fill-box;
+  opacity: 0;
+  transform-origin: 50% 0%;
+  animation: intro-strand-in 1s var(--ease-out) forwards;
+}
+.intro__lite-scissors {
+  opacity: 0;
+  transform: translateY(-10px) rotate(-6deg) scale(0.9);
+  animation: intro-scissors-in 0.8s var(--ease-out) forwards;
+  animation-delay: 1000ms;
+}
+.intro__lite-blade--a,
+.intro__lite-blade--b {
+  transform-origin: 0px 0px;
+  transition: transform 0.32s var(--ease-in-out);
+}
+
+@keyframes intro-in { to { opacity: 1; transform: none; } }
+@keyframes intro-strand-in { to { opacity: 0.7; } }
+@keyframes intro-scissors-in { to { opacity: 1; transform: none; } }
+
+/* Suave balanceo continuo, invitando a la interacción */
+.intro:not(.is-cutting):not(.is-exit):not(.is-skip) .intro__lite-head {
+  animation: intro-in 0.9s var(--ease-out) forwards, intro-sway 5s ease-in-out 1s infinite;
+}
+@keyframes intro-sway {
+  0%, 100% { transform: rotate(-1.2deg); }
+  50% { transform: rotate(1.2deg); }
+}
+
+/* Interacción: las tijeras cortan y el cabello reacciona */
+.intro.is-cutting .intro__lite-blade--a { transform: rotate(10deg); }
+.intro.is-cutting .intro__lite-blade--b { transform: rotate(-10deg); }
+.intro.is-cutting .intro__lite-strand {
+  animation: intro-strand-flutter 0.7s var(--ease-in-out);
+}
+@keyframes intro-strand-flutter {
+  0% { transform: rotate(0deg); }
+  30% { transform: rotate(4deg) translateX(2px); }
+  60% { transform: rotate(-3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.intro__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.intro__prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-ink-soft);
+  opacity: 0;
+  animation: intro-in 0.8s var(--ease-out) forwards;
+  animation-delay: 1300ms;
+  transition: opacity 0.4s var(--ease-out);
+}
+.intro__prompt-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  animation: intro-pulse 1.8s ease-in-out infinite;
+}
+@keyframes intro-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.55; }
+  50% { transform: scale(1.6); opacity: 1; }
+}
+.intro.is-cutting .intro__prompt,
+.intro.is-exit .intro__prompt,
+.intro.is-skip .intro__prompt { opacity: 0; }
+
+.intro__skip {
+  position: absolute;
+  top: clamp(1rem, 3vw, 1.75rem);
+  right: clamp(1rem, 3vw, 1.75rem);
+  z-index: 2;
+  opacity: 0;
+  animation: intro-in 0.7s var(--ease-out) forwards;
+  animation-delay: 250ms;
+}
+.intro__skip svg { width: 0.9em; height: 0.9em; }
+
+.intro__replay {
+  color: inherit;
+}
+
+/* ---------- Salida ---------- */
+.intro.is-exit,
+.intro.is-skip {
+  pointer-events: none;
+}
+.intro.is-exit {
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.85s var(--ease-out), transform 0.85s var(--ease-out);
+}
+.intro.is-skip {
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+@media (max-width: 640px) {
+  .intro__scene-wrap { width: min(72vw, 340px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro,
+  .intro__logo,
+  .intro__scene-wrap,
+  .intro__prompt,
+  .intro__skip,
+  .intro__lite-head,
+  .intro__lite-strand,
+  .intro__lite-scissors {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
