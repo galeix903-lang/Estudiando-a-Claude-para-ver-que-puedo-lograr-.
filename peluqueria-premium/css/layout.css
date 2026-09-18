@@ -107,8 +107,8 @@
 .btn:active { transform: scale(0.97); }
 
 .btn--primary {
-  background: var(--c-ink);
-  color: var(--c-cream);
+  background: var(--c-cta);
+  color: var(--c-cta-ink);
 }
 .btn--primary::before {
   content: '';

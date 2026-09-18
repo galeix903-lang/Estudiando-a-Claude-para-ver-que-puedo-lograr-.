@@ -30,6 +30,9 @@
 
   --c-cream: var(--c-white);
 
+  --c-cta: #DCEAF6;   /* azul muy claro — cursor, botón de reserva y CTAs principales */
+  --c-cta-ink: var(--c-ink);
+
   --c-success: #3E6B4F;
   --c-error: #A23B2E;
 

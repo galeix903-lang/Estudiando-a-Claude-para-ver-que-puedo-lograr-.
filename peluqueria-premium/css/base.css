@@ -160,38 +160,35 @@ html.has-custom-cursor * {
   top: 0; left: 0;
   border-radius: 999px;
   width: 18px; height: 18px;
-  background: var(--c-accent);
+  background: var(--c-cta);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   /* Posición actualizada por js/cursor.js en cada frame; sin transition
      sobre "transform" aquí (competiría con esa actualización y el
-     seguimiento del puntero iría a tirones). El tamaño/forma de hover
-     sí se anima con estas otras propiedades, que no chocan con eso. */
+     seguimiento del puntero iría a tirones). El tamaño/forma de la
+     etiqueta sí se anima con estas otras propiedades, que no chocan
+     con eso. Al pasar sobre un elemento normal el círculo NO crece
+     (a propósito): solo cambia de forma sobre galería/colección, para
+     mostrar la palabra "Ver". */
   transition: width var(--dur-fast) var(--ease-out), height var(--dur-fast) var(--ease-out);
 }
-.cursor.is-hover .cursor__ring {
-  width: 46px; height: 46px;
-}
 
-/* Estado "etiqueta": sobre la galería y la colección, el anillo se
+/* Estado "etiqueta": sobre la galería y la colección, el círculo se
    convierte en una pequeña píldora con una palabra que invita a mirar
    más de cerca — un guiño minimalista a cursores de marcas premium,
    sin reproducir el diseño de ninguna en concreto. */
-.cursor.is-label .cursor__dot { opacity: 0; }
 .cursor.is-label .cursor__ring {
   width: 84px; height: 34px;
   border-radius: 999px;
-  background: var(--c-accent);
-  border-color: var(--c-accent);
 }
 .cursor__label {
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--c-cream);
+  color: var(--c-cta-ink);
   white-space: nowrap;
   opacity: 0;
   transition: opacity var(--dur-fast) var(--ease-out);
