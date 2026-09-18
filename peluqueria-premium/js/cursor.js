@@ -1,9 +1,9 @@
-/* Cursor personalizado — un punto y un anillo que siguen al puntero,
-   solo en escritorio con puntero fino. Sustituye por completo al cursor
+/* Cursor personalizado — un círculo relleno que sigue al puntero, solo
+   en escritorio con puntero fino. Sustituye por completo al cursor
    nativo del sistema (ver la regla "html.has-custom-cursor" en
-   css/base.css). Sobre la galería y la colección, el anillo se
-   convierte en una pequeña píldora con una palabra ("Ver" / "Ver
-   estilo"): un cursor minimalista tipo etiqueta, diseño propio. */
+   css/base.css). Sobre la galería y la colección, se convierte en una
+   pequeña píldora con una palabra ("Ver" / "Ver estilo"): un cursor
+   minimalista tipo etiqueta, diseño propio. */
 (function () {
   const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   if (!supportsFinePointer) return;
@@ -11,7 +11,6 @@
   const cursor = document.querySelector('.cursor');
   if (!cursor) return;
 
-  const dot = cursor.querySelector('.cursor__dot');
   const ring = cursor.querySelector('.cursor__ring');
   const label = cursor.querySelector('[data-cursor-label]');
 
@@ -28,7 +27,6 @@
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
     if (!active) {
       active = true;
       cursor.classList.add('is-active');
