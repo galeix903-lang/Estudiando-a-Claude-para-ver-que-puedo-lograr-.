@@ -30,8 +30,11 @@
 
   --c-cream: var(--c-white);
 
-  --c-cta: #DCEAF6;   /* azul muy claro — cursor, botón de reserva y CTAs principales */
+  --c-cta: #DCEAF6;   /* azul muy claro — botón de reserva y CTAs principales */
   --c-cta-ink: var(--c-ink);
+
+  --c-cursor: #9333EA;      /* lila fuerte — cursor personalizado */
+  --c-cursor-ink: var(--c-white);
 
   --c-success: #3E6B4F;
   --c-error: #A23B2E;
