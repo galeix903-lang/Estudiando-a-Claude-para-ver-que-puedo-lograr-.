@@ -49,10 +49,10 @@ window.SITE_CONTENT = {
 
   nav: [
     { label: 'Servicios', href: '#servicios' },
-    { label: 'El estudio', href: '#estudio' },
-    { label: 'El equipo', href: '#equipo' },
+    { label: 'Estudio', href: '#estudio' },
+    { label: 'Resultados', href: '#resultados' },
+    { label: 'Equipo', href: '#equipo' },
     { label: 'Galería', href: '#galeria' },
-    { label: 'Opiniones', href: '#opiniones' },
     { label: 'Contacto', href: '#contacto' },
   ],
 
@@ -126,12 +126,12 @@ window.SITE_CONTENT = {
     image: 'img/studio.svg',
   },
 
-  impact: {
-    eyebrow: '02',
-    titleLine1: 'TU ESTILO.',
-    titleLine2: 'TU IDENTIDAD.',
-    text: 'Una experiencia diseñada alrededor de ti, de principio a fin.',
-    image: 'img/impact.svg',
+  // Sección "Filosofía": pausa visual minimalista entre Pilares y
+  // Servicios. Solo texto, sin fotografía — deliberado, para que
+  // contraste con el resto de secciones (que sí llevan imagen).
+  philosophy: {
+    statementLine1: 'No se trata solo de cortar.',
+    statementLine2: 'Se trata de encontrar tu estilo.',
   },
 
   // Sección "Resultados": comparador antes/después. Cada entrada es una
@@ -219,6 +219,29 @@ window.SITE_CONTENT = {
     { image: 'img/gallery-7.svg', label: 'Corte', span: 'wide' },
     { image: 'img/gallery-8.svg', label: 'Resultado', span: 'normal' },
   ],
+
+  // Franja "Instagram": extensión de la galería, cerca del cierre de la
+  // página. Añade o quita objetos de `posts` para cambiar cuántas
+  // miniaturas se muestran (pensada para 4–6).
+  instagram: {
+    handle: '@studioname',
+    url: 'https://instagram.com/',
+    posts: [
+      { image: 'img/instagram-1.svg' },
+      { image: 'img/instagram-2.svg' },
+      { image: 'img/instagram-3.svg' },
+      { image: 'img/instagram-4.svg' },
+      { image: 'img/instagram-5.svg' },
+      { image: 'img/instagram-6.svg' },
+    ],
+  },
+
+  // Última sección antes del footer: cierre de conversión.
+  ctaFinal: {
+    title: '¿Listo para tu próximo look?',
+    subtitle: 'Reserva tu cita.',
+    cta: 'Reservar cita',
+  },
 
   reviews: [
     { quote: '[Opinión del cliente]', name: '[Nombre del cliente]', rating: 5 },

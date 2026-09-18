@@ -42,7 +42,7 @@ peluqueria-premium/
 │   ├── render.js         Lee data/content.js y rellena el HTML (data-binding
 │   │                      ligero, sin build ni framework)
 │   ├── main.js            Navbar dinámica, menú móvil, panel de vista previa
-│   │                      de servicios, parallax sutil, año del footer
+│   │                      de servicios, año del footer
 │   ├── reveal.js          Animaciones al entrar en viewport (genérico,
 │   │                      no necesita tocarse al añadir secciones)
 │   ├── gallery.js         Lightbox de la galería
@@ -79,25 +79,32 @@ hechos en el fichero de datos.
 Edita `data/content.js`. Cada bloque está comentado y es autoexplicativo:
 
 - `business`: nombre, tagline, descripción, ciudad, año de fundación.
-- `contact`: teléfono, WhatsApp, Instagram, dirección, horario, enlace de
-  Google Maps.
+- `contact`: teléfono, WhatsApp, Instagram, dirección, enlace de Google
+  Maps y horario — `hoursShort` (una línea, usada en el footer) y `hours[]`
+  (el horario completo día a día que se muestra en "Contacto").
 - `nav`: enlaces del menú (desktop y móvil, se generan del mismo array).
 - `pillars`: los 3 pilares de la sección "Más que un corte".
+- `philosophy`: las dos líneas de la sección "Filosofía" (pausa visual de
+  solo texto entre Pilares y Servicios).
 - `services`: lista de servicios con precio, duración e imagen — también
   alimenta los desplegables del asistente de reserva.
 - `team`: solo la lista corta de nombres seleccionables en el desplegable
   "Profesional" del asistente de reserva.
-- `studio` / `impact`: textos e imagen de la sección "El estudio" y del
-  bloque de impacto visual.
+- `studio`: textos e imagen de la sección "El estudio".
 - `transformations`: pares antes/después de la sección "Resultados"
   (`beforeImage`, `afterImage`, `label`, `category`). Añade o quita
   objetos para cambiar cuántas transformaciones se muestran.
 - `teamMembers`: fichas del equipo para la sección "El equipo" (`number`,
   `name`, `role`, `bio`, `photo`, `instagram` — pon `instagram: null` para
-  ocultar el enlace en esa ficha). No confundir con `team` (arriba).
+  ocultar el enlace en esa ficha). No confundir con `team` (arriba). El
+  diseño es igual de válido con 2 fichas que con 6.
 - `experienceSteps`: los pasos de la sección "La experiencia" (`number`,
   `title`, `text`, `image`).
 - `gallery`: imágenes y etiquetas de la galería.
+- `instagram`: `handle`, `url` y `posts[]` (4–6 imágenes) de la franja de
+  Instagram, cerca del final de la página.
+- `ctaFinal`: título, subtítulo y texto del botón de la última sección
+  antes del footer.
 - `reviews`: testimonios (sustituir por reseñas reales con permiso del
   cliente).
 - `faq`: preguntas frecuentes.
@@ -142,14 +149,19 @@ descuadre:
 | Archivo | Uso | Proporción recomendada |
 |---|---|---|
 | `hero.svg` | Fondo de la portada (foto o vídeo) | 16:10, ancha |
-| `impact.svg` | Bloque de impacto visual a sangre ("Tu estilo. Tu identidad.") | 3:2 ancha |
 | `studio.svg` | Sección "El estudio" | 4:5 vertical |
 | `service-1.svg`…`service-4.svg` | Panel flotante al pasar el cursor por cada servicio | 4:5 vertical |
 | `before-1.svg` / `after-1.svg`, `before-2.svg` / `after-2.svg` | Comparador antes/después de "Resultados" | 4:5 vertical, mismo encuadre y distancia en cada par |
 | `team-1.svg`…`team-3.svg` | Fichas de "El equipo" | 4:5 vertical, mismo encuadre e iluminación entre fotos |
 | `experience-1.svg`…`experience-4.svg` | Panel fijo de "La experiencia" (uno por paso) | cuadrada |
 | `gallery-1.svg`…`gallery-8.svg` | Galería (masonry) | alternan 3:4, 1:1 y 4:3, ver el nombre del archivo |
+| `instagram-1.svg`…`instagram-6.svg` | Franja de Instagram | cuadrada |
 | `favicon.svg` | Icono del navegador | cuadrada |
+
+La sección "Filosofía" es deliberadamente solo texto (sin imagen): es la
+pausa visual carbón/marfil de la página, y no lleva fotografía de fondo a
+propósito, para no repetir el mismo recurso que ya usan Hero, Estudio,
+Resultados, etc.
 
 Recomendaciones: fotografías propias del local (nunca imágenes genéricas
 haciéndolas pasar por reales), formato `.jpg`/`.webp` optimizado, peso

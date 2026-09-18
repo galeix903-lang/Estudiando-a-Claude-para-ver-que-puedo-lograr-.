@@ -220,6 +220,29 @@
       .join('');
   }
 
+  // ---------- Horario (sección Contacto) ----------
+  const hours = get('contact.hours') || [];
+  const hoursList = document.querySelector('[data-hours-list]');
+  if (hoursList && hours.length) {
+    hoursList.innerHTML = hours
+      .map((h) => `<li><span>${h.days}</span><span>${h.time}</span></li>`)
+      .join('');
+  }
+
+  // ---------- Instagram ----------
+  const instagramPosts = get('instagram.posts') || [];
+  const socialList = document.querySelector('[data-social-list]');
+  if (socialList && instagramPosts.length) {
+    socialList.innerHTML = instagramPosts
+      .map(
+        (p) => `
+        <li class="social__item reveal" data-reveal>
+          <img src="${p.image}" loading="lazy" decoding="async" alt="Publicación de Instagram">
+        </li>`
+      )
+      .join('');
+  }
+
   // ---------- Preguntas frecuentes ----------
   const faq = get('faq') || [];
   const faqList = document.querySelector('[data-faq-list]');

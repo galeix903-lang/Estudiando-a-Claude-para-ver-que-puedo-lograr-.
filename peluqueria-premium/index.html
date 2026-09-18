@@ -136,10 +136,10 @@
     <nav class="nav" aria-label="Navegación principal">
       <ul class="nav__list" data-nav-list>
         <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#estudio">El estudio</a></li>
-        <li><a href="#equipo">El equipo</a></li>
+        <li><a href="#estudio">Estudio</a></li>
+        <li><a href="#resultados">Resultados</a></li>
+        <li><a href="#equipo">Equipo</a></li>
         <li><a href="#galeria">Galería</a></li>
-        <li><a href="#opiniones">Opiniones</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -158,10 +158,10 @@
   <nav aria-label="Navegación móvil">
     <ul class="mobile-menu__list" data-mobile-nav-list>
       <li style="--i:0"><a href="#servicios" data-mobile-link>Servicios</a></li>
-      <li style="--i:1"><a href="#estudio" data-mobile-link>El estudio</a></li>
-      <li style="--i:2"><a href="#equipo" data-mobile-link>El equipo</a></li>
-      <li style="--i:3"><a href="#galeria" data-mobile-link>Galería</a></li>
-      <li style="--i:4"><a href="#opiniones" data-mobile-link>Opiniones</a></li>
+      <li style="--i:1"><a href="#estudio" data-mobile-link>Estudio</a></li>
+      <li style="--i:2"><a href="#resultados" data-mobile-link>Resultados</a></li>
+      <li style="--i:3"><a href="#equipo" data-mobile-link>Equipo</a></li>
+      <li style="--i:4"><a href="#galeria" data-mobile-link>Galería</a></li>
       <li style="--i:5"><a href="#contacto" data-mobile-link>Contacto</a></li>
     </ul>
   </nav>
@@ -227,14 +227,13 @@
     </div>
   </section>
 
-  <!-- ============ 3. SECCIÓN DE IMPACTO VISUAL ============ -->
-  <section class="impact" id="impacto">
-    <img src="img/impact.svg" alt="Espacio de marca — fotografía sustituible" class="impact__media" loading="lazy" decoding="async">
-    <div class="impact__overlay" aria-hidden="true"></div>
-    <div class="impact__content">
-      <span class="impact__index">02</span>
-      <h2 class="impact__title reveal" data-reveal>TU ESTILO.<br>TU IDENTIDAD.</h2>
-      <p class="impact__text reveal" data-reveal>Una experiencia diseñada alrededor de ti, de principio a fin.</p>
+  <!-- ============ 3. FILOSOFÍA ============ -->
+  <section class="philosophy" id="filosofia">
+    <div class="container philosophy__inner">
+      <p class="philosophy__statement reveal" data-reveal>
+        <span data-bind="philosophy.statementLine1">No se trata solo de cortar.</span><br>
+        <span data-bind="philosophy.statementLine2">Se trata de encontrar tu estilo.</span>
+      </p>
     </div>
   </section>
 
@@ -734,7 +733,13 @@
           </div>
           <div>
             <dt>Horario</dt>
-            <dd data-bind="contact.hoursShort">L–V 09:00–20:00</dd>
+            <dd>
+              <ul class="contact__hours" data-hours-list>
+                <li><span>Lunes – Viernes</span><span>09:00 – 20:00</span></li>
+                <li><span>Sábado</span><span>10:00 – 15:00</span></li>
+                <li><span>Domingo</span><span>Cerrado</span></li>
+              </ul>
+            </dd>
           </div>
           <div>
             <dt>Teléfono</dt>
@@ -764,6 +769,38 @@
           <p>Inserta aquí el iframe de Google Maps con la dirección real del local.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ 14. INSTAGRAM ============ -->
+  <section class="social">
+    <div class="container social__inner">
+      <div class="social__head reveal" data-reveal>
+        <p class="social__handle" data-bind="instagram.handle">@studioname</p>
+        <a data-bind-href="instagram.url" target="_blank" rel="noopener" class="social__link">
+          <span>Ver Instagram</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <ul class="social__grid" data-social-list>
+        <li class="social__item reveal" data-reveal><img src="img/instagram-1.svg" loading="lazy" decoding="async" alt="Publicación de Instagram"></li>
+        <li class="social__item reveal" data-reveal><img src="img/instagram-2.svg" loading="lazy" decoding="async" alt="Publicación de Instagram"></li>
+        <li class="social__item reveal" data-reveal><img src="img/instagram-3.svg" loading="lazy" decoding="async" alt="Publicación de Instagram"></li>
+        <li class="social__item reveal" data-reveal><img src="img/instagram-4.svg" loading="lazy" decoding="async" alt="Publicación de Instagram"></li>
+        <li class="social__item reveal" data-reveal><img src="img/instagram-5.svg" loading="lazy" decoding="async" alt="Publicación de Instagram"></li>
+        <li class="social__item reveal" data-reveal><img src="img/instagram-6.svg" loading="lazy" decoding="async" alt="Publicación de Instagram"></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 15. CTA FINAL ============ -->
+  <section class="cta-final">
+    <div class="container cta-final__inner">
+      <p class="cta-final__title reveal" data-reveal>
+        <span data-bind="ctaFinal.title">¿Listo para tu próximo look?</span>
+      </p>
+      <p class="cta-final__subtitle reveal" data-reveal data-bind="ctaFinal.subtitle">Reserva tu cita.</p>
+      <a href="#reserva" class="btn btn--primary btn--lg reveal" data-reveal data-bind="ctaFinal.cta">Reservar cita</a>
     </div>
   </section>
 

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Instagram">
+  <defs>
+    <linearGradient id="g-ig4" x1="8%" y1="0%" x2="92%" y2="100%">
+      <stop offset="0%" stop-color="#F7F4EE"/>
+      <stop offset="100%" stop-color="#E8E0D3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#g-ig4)"/>
+  <rect x="0.5" y="0.5" width="799" height="799" fill="none" stroke="rgba(23,22,20,0.12)" stroke-width="1"/>
+  <g transform="translate(400.0 400.0)" opacity="0.65" fill="none" stroke="#B49A72" stroke-width="1.4" stroke-linecap="round">
+    <path d="M -57.6 -41.471999999999994 L -57.6 -57.6 L -41.471999999999994 -57.6"/>
+    <path d="M 41.471999999999994 -57.6 L 57.6 -57.6 L 57.6 -41.471999999999994"/>
+    <path d="M 57.6 41.471999999999994 L 57.6 57.6 L 41.471999999999994 57.6"/>
+    <path d="M -41.471999999999994 57.6 L -57.6 57.6 L -57.6 41.471999999999994"/>
+    <circle cx="0" cy="0" r="9.216000000000001"/>
+  </g>
+  <text x="50%" y="523.84" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22.4" fill="#171614" letter-spacing="0.3" opacity="0.92">Instagram</text>
+  <text x="50%" y="558.5600000000001" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11.2" fill="#8C8072" letter-spacing="1.6">[PERSONALIZAR] · 800×800</text>
+</svg>

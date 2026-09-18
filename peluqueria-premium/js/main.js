@@ -70,25 +70,4 @@
       });
     });
   }
-
-  /* Parallax muy sutil en la sección de impacto visual */
-  const parallaxEl = document.querySelector('.impact__media');
-  const reducedMotionMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (parallaxEl && !reducedMotionMQ.matches) {
-    let ticking = false;
-    function updateParallax() {
-      const rect = parallaxEl.parentElement.getBoundingClientRect();
-      const progress = (rect.top) / window.innerHeight; // ~1 antes de entrar, ~0 centrado, negativo al salir
-      const offset = progress * -30; // desplazamiento máximo muy contenido
-      parallaxEl.style.transform = `translateY(${offset}px) scale(1.08)`;
-      ticking = false;
-    }
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    }, { passive: true });
-    updateParallax();
-  }
 })();

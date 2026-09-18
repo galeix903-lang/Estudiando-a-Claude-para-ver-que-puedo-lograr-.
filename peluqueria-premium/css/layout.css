@@ -104,13 +104,12 @@
   overflow: hidden;
   isolation: isolate;
   white-space: nowrap;
-  transition: transform var(--dur-fast) var(--ease-out),
-              box-shadow var(--dur-fast) var(--ease-out),
+  transition: transform 0.3s var(--ease-out),
+              box-shadow 0.3s var(--ease-out),
               color var(--dur-base) var(--ease-out),
               border-color var(--dur-base) var(--ease-out),
               background-color var(--dur-base) var(--ease-out);
 }
-.btn:active { transform: scale(0.98); }
 
 .btn--primary {
   background: var(--color-primary);
@@ -120,9 +119,12 @@
 .btn--primary:hover {
   background: #2A2724;
   border-color: #2A2724;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -12px rgba(23, 22, 20, 0.45);
 }
 
 .btn--sm { padding: 0.68em 1.35em; font-size: 0.8125rem; }
+.btn--lg { padding: 1.15em 2.6em; font-size: 0.9375rem; }
 
 .btn--outline {
   color: var(--color-ink);
@@ -133,6 +135,8 @@
   border-color: var(--color-ink);
   background: var(--color-ink);
   color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px -14px rgba(23, 22, 20, 0.3);
 }
 
 .btn--ghost-light {
@@ -143,6 +147,7 @@
 .btn--ghost-light:hover {
   border-color: var(--color-white);
   background: rgba(247, 244, 238, 0.1);
+  transform: translateY(-2px);
 }
 
 .btn--whatsapp {
@@ -154,10 +159,15 @@
   border-color: #3E6B4F;
   color: #2E4F3A;
   background: color-mix(in srgb, #3E6B4F 8%, var(--color-bg));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px -14px rgba(62, 107, 79, 0.35);
 }
 
 .btn--block { width: 100%; }
 .btn:disabled { opacity: 0.4; pointer-events: none; }
+/* Al soltar, aterriza; el gesto de pulsar siempre reduce ligeramente
+   la escala, se combine o no con el "levitado" del hover. */
+.btn:active { transform: scale(0.97); box-shadow: none; }
 
 /* ============ MENÚ MÓVIL ============ */
 .menu-toggle {

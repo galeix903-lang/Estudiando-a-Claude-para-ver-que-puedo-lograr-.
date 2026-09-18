@@ -37,6 +37,7 @@
 .compare.reveal          { transition-delay: calc(var(--stagger, 0) * 110ms); }
 .team__member.reveal    { transition-delay: calc(var(--stagger, 0) * 120ms); }
 .gallery__item.reveal   { transition-delay: calc(var(--stagger, 0) * 55ms); }
+.social__item.reveal    { transition-delay: calc(var(--stagger, 0) * 50ms); }
 .testimonial.reveal     { transition-delay: calc(var(--stagger, 0) * 90ms); }
 .faq__item.reveal       { transition-delay: calc(var(--stagger, 0) * 60ms); }
 
