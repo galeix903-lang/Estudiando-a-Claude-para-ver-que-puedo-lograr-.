@@ -21,8 +21,8 @@ body {
   font-family: var(--f-body);
   font-size: var(--fs-body);
   line-height: 1.6;
-  color: var(--c-ink);
-  background: var(--c-bg);
+  color: var(--color-ink-soft);
+  background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -40,34 +40,35 @@ input, select, textarea { font: inherit; color: inherit; }
 h1, h2, h3, h4 {
   font-family: var(--f-display);
   font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -0.01em;
-  color: var(--c-ink);
+  line-height: 1.06;
+  letter-spacing: -0.012em;
+  color: var(--color-ink);
+  text-wrap: balance;
 }
 
 h1 { font-size: var(--fs-h1); font-weight: 500; }
 h2 { font-size: var(--fs-h2); }
-h3 { font-size: var(--fs-h3); font-weight: 600; font-family: var(--f-body); }
+h3 { font-size: var(--fs-h3); font-weight: 600; font-family: var(--f-body); letter-spacing: -0.005em; }
 
-p { color: var(--c-ink-soft); }
+p { color: var(--color-ink-soft); }
 
 /* Foco visible, accesible, coherente con la identidad */
 :focus-visible {
-  outline: 2px solid var(--c-accent);
+  outline: 1.5px solid var(--color-primary);
   outline-offset: 3px;
 }
 
 ::selection {
-  background: var(--c-accent-soft);
-  color: var(--c-accent-ink);
+  background: var(--color-accent);
+  color: var(--color-white);
 }
 
 .skip-link {
   position: absolute;
   left: -9999px;
   top: 0;
-  background: var(--c-brown);
-  color: var(--c-cream);
+  background: var(--color-primary);
+  color: var(--color-white);
   padding: 0.9em 1.4em;
   z-index: 999;
   border-radius: var(--radius-sm);
@@ -86,29 +87,41 @@ p { color: var(--c-ink-soft); }
 }
 
 /* Compensa la cabecera fija al navegar por anclas */
-main > section[id] { scroll-margin-top: 5.5rem; }
+main > section[id] { scroll-margin-top: 5rem; }
 
 .eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
   font-family: var(--f-body);
   font-size: var(--fs-eyebrow);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--c-accent);
-  margin-bottom: 1rem;
+  color: var(--color-ink-faint);
+  margin-bottom: 1.1rem;
 }
-.eyebrow--light { color: var(--c-accent-soft); }
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 22px;
+  height: 1px;
+  background: var(--color-accent);
+}
+.eyebrow--center { justify-content: center; }
+.eyebrow--light { color: rgba(247, 244, 238, 0.6); }
+.eyebrow--light::before { background: var(--color-accent); }
 
 .section-head {
   max-width: 640px;
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
 }
-.section-head h2 { margin-top: 0.25rem; }
+.section-head h2 { margin-top: 0.35rem; }
+.section-head--center { margin-inline: auto; text-align: center; }
 
 .placeholder-note {
   font-size: var(--fs-small);
-  color: var(--c-ink-faint);
+  color: var(--color-ink-faint);
   font-style: italic;
 }
 .placeholder-note.center { text-align: center; margin-top: 2.5rem; }
@@ -120,8 +133,8 @@ main > section[id] { scroll-margin-top: 5.5rem; }
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--c-accent);
-  background: color-mix(in srgb, var(--c-accent) 12%, transparent);
+  color: var(--color-ink);
+  background: var(--color-secondary);
   padding: 0.15em 0.5em;
   border-radius: var(--radius-xs);
   margin-left: 0.4em;
@@ -130,71 +143,22 @@ main > section[id] { scroll-margin-top: 5.5rem; }
 
 .icon-whatsapp { width: 1.1em; height: 1.1em; fill: currentColor; }
 
-@media (max-width: 720px) {
-  h1 { line-height: 1.05; }
-}
-
-/* ============ CURSOR PERSONALIZADO ============ */
-/* Mientras js/cursor.js confirma que puede tomar el control (ver la clase
-   "has-custom-cursor" que añade en <html>), se oculta el cursor nativo
-   del sistema/navegador en toda la página, para que solo se vea el
-   cursor propio de la web. El !important es deliberado: garantiza que
-   ninguna otra regla (cursor: pointer, grab, etc.) lo deje asomar. */
-html.has-custom-cursor,
-html.has-custom-cursor * {
-  cursor: none !important;
-}
-
-.cursor {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--dur-fast) var(--ease-out);
-}
-.cursor.is-active { opacity: 1; }
-
-.cursor__ring {
+.visually-hidden {
   position: absolute;
-  top: 0; left: 0;
-  border-radius: 999px;
-  width: 18px; height: 18px;
-  background: var(--c-cursor);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 1px; height: 1px;
   overflow: hidden;
-  /* Posición actualizada por js/cursor.js en cada frame; sin transition
-     sobre "transform" aquí (competiría con esa actualización y el
-     seguimiento del puntero iría a tirones). El tamaño/forma de la
-     etiqueta sí se anima con estas otras propiedades, que no chocan
-     con eso. Al pasar sobre un elemento normal el círculo NO crece
-     (a propósito): solo cambia de forma sobre galería/colección, para
-     mostrar la palabra "Ver". */
-  transition: width var(--dur-fast) var(--ease-out), height var(--dur-fast) var(--ease-out);
-}
-
-/* Estado "etiqueta": sobre la galería y la colección, el círculo se
-   convierte en una pequeña píldora con una palabra que invita a mirar
-   más de cerca — un guiño minimalista a cursores de marcas premium,
-   sin reproducir el diseño de ninguna en concreto. */
-.cursor.is-label .cursor__ring {
-  width: 84px; height: 34px;
-  border-radius: 999px;
-}
-.cursor__label {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--c-cursor-ink);
+  clip: rect(0 0 0 0);
   white-space: nowrap;
-  opacity: 0;
-  transition: opacity var(--dur-fast) var(--ease-out);
 }
-.cursor.is-label .cursor__label { opacity: 1; }
 
-@media (hover: none), (pointer: coarse) {
-  .cursor { display: none; }
+@media (max-width: 720px) {
+  h1 { line-height: 1.04; }
+}
+
+/* ============ CURSOR ============ */
+/* Cursor nativo del sistema en toda la web (más accesible y predecible).
+   Los elementos interactivos avisan con microinteracciones propias
+   (subrayados, color, desplazamientos) en vez de con un cursor a medida. */
+a, button, [role="button"], summary {
+  cursor: pointer;
 }

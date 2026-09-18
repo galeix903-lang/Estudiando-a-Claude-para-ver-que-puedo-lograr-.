@@ -1,20 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="Galería 03">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Interior del estudio">
   <defs>
-    <linearGradient id="g-7" x1="10%" y1="0%" x2="90%" y2="100%">
-      <stop offset="0%" stop-color="#F8F1DF"/>
-      <stop offset="100%" stop-color="#FFFFFF"/>
+    <linearGradient id="g-gal3" x1="8%" y1="0%" x2="92%" y2="100%">
+      <stop offset="0%" stop-color="#F7F4EE"/>
+      <stop offset="100%" stop-color="#E8E0D3"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="1200" fill="url(#g-7)"/>
-  <rect x="0.5" y="0.5" width="1199" height="1199" fill="none" stroke="rgba(107,81,69,0.14)" stroke-width="1"/>
-  
-  <g transform="translate(600 560) scale(3.1578947368421053)" opacity="0.55" fill="none" stroke="#6B5145" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="-14" cy="12" r="6"/>
-    <circle cx="14" cy="12" r="6"/>
-    <path d="M -10 8 L 18 -22"/>
-    <path d="M 10 8 L -18 -22"/>
-    <path d="M -18 -22 L -10 -22 M 18 -22 L 10 -22"/>
+  <rect width="1200" height="900" fill="url(#g-gal3)"/>
+  <rect x="0.5" y="0.5" width="1199" height="899" fill="none" stroke="rgba(23,22,20,0.12)" stroke-width="1"/>
+  <g transform="translate(600.0 450.0)" opacity="0.65" fill="none" stroke="#B49A72" stroke-width="1.4" stroke-linecap="round">
+    <path d="M -64.8 -46.65599999999999 L -64.8 -64.8 L -46.65599999999999 -64.8"/>
+    <path d="M 46.65599999999999 -64.8 L 64.8 -64.8 L 64.8 -46.65599999999999"/>
+    <path d="M 64.8 46.65599999999999 L 64.8 64.8 L 46.65599999999999 64.8"/>
+    <path d="M -46.65599999999999 64.8 L -64.8 64.8 L -64.8 46.65599999999999"/>
+    <circle cx="0" cy="0" r="10.368"/>
   </g>
-  <text x="50%" y="652" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="36" fill="#6B5145" letter-spacing="0.5" opacity="0.85">Galería 03</text>
-  <text x="50%" y="713.2" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="19.2" fill="#A88F82" letter-spacing="1.5">INTERIOR DEL SALÓN · 1200×1200</text>
+  <text x="50%" y="589.3199999999999" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="25.2" fill="#171614" letter-spacing="0.3" opacity="0.92">Interior del estudio</text>
+  <text x="50%" y="628.3799999999999" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12.6" fill="#8C8072" letter-spacing="1.6">FOTOGRAFÍA DE GALERÍA · 1200×900</text>
 </svg>

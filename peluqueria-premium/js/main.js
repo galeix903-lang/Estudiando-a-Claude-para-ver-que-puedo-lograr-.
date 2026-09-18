@@ -47,4 +47,48 @@
 
   const yearEl = document.querySelector('[data-year]');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* Panel de vista previa de servicios: al pasar el cursor por una fila
+     se muestra la imagen asociada en el panel flotante. Solo en
+     dispositivos con hover real (no táctiles). */
+  const servicesPreview = document.querySelector('[data-services-preview]');
+  const serviceItems = document.querySelectorAll('.services__item[data-preview]');
+  const supportsHover = window.matchMedia('(hover: hover)').matches;
+  if (servicesPreview && serviceItems.length && supportsHover) {
+    serviceItems.forEach((item) => {
+      item.addEventListener('mouseenter', () => {
+        const src = item.dataset.preview;
+        if (!src) return;
+        servicesPreview.style.backgroundImage = `url("${src}")`;
+        const rect = item.getBoundingClientRect();
+        const listRect = item.closest('.services__wrap').getBoundingClientRect();
+        servicesPreview.style.top = `${rect.top - listRect.top + rect.height / 2}px`;
+        servicesPreview.classList.add('is-visible');
+      });
+      item.addEventListener('mouseleave', () => {
+        servicesPreview.classList.remove('is-visible');
+      });
+    });
+  }
+
+  /* Parallax muy sutil en la sección de impacto visual */
+  const parallaxEl = document.querySelector('.impact__media');
+  const reducedMotionMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (parallaxEl && !reducedMotionMQ.matches) {
+    let ticking = false;
+    function updateParallax() {
+      const rect = parallaxEl.parentElement.getBoundingClientRect();
+      const progress = (rect.top) / window.innerHeight; // ~1 antes de entrar, ~0 centrado, negativo al salir
+      const offset = progress * -30; // desplazamiento máximo muy contenido
+      parallaxEl.style.transform = `translateY(${offset}px) scale(1.08)`;
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateParallax();
+  }
 })();

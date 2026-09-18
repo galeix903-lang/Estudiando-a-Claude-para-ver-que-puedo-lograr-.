@@ -8,12 +8,12 @@
 */
 import * as THREE from './vendor/three.module.min.js';
 
-const COLOR_HEAD = 0xf8f1df; // vainilla
-const COLOR_HAIR = 0x6b5145; // marrón cálido
-const COLOR_METAL = 0x6b5145;
-const COLOR_KEY_LIGHT = 0xfff6ee;
-const COLOR_FILL_LIGHT = 0xf3dde1; // rosa
-const COLOR_RIM_LIGHT = 0xf8f1df; // vainilla
+const COLOR_HEAD = 0xf7f4ee; // ivory
+const COLOR_HAIR = 0x171614; // carbon
+const COLOR_METAL = 0xb49a72; // champagne
+const COLOR_KEY_LIGHT = 0xfff8ea;
+const COLOR_FILL_LIGHT = 0xe8e0d3; // warm beige
+const COLOR_RIM_LIGHT = 0xb49a72; // champagne
 
 const CUT_DURATION_MS = 700;
 

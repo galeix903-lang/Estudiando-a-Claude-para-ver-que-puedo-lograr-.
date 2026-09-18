@@ -32,18 +32,11 @@
 }
 
 /* Stagger automático dentro de listas/grids marcados */
-.services__item.reveal { transition-delay: calc(var(--stagger, 0) * 70ms); }
-.gallery__item.reveal   { transition-delay: calc(var(--stagger, 0) * 60ms); }
-.experience__step.reveal{ transition-delay: calc(var(--stagger, 0) * 110ms); }
+.pillars__item.reveal   { transition-delay: calc(var(--stagger, 0) * 100ms); }
+.services__item.reveal  { transition-delay: calc(var(--stagger, 0) * 70ms); }
+.gallery__item.reveal   { transition-delay: calc(var(--stagger, 0) * 55ms); }
 .testimonial.reveal     { transition-delay: calc(var(--stagger, 0) * 90ms); }
-.stats.reveal            { transition-delay: 120ms; }
-.collection__item.reveal { transition-delay: calc(var(--stagger, 0) * 70ms); }
-
-/* Variante horizontal: la colección entra ligeramente desplazada desde la izquierda */
-.reveal--x {
-  transform: translateX(-32px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-}
+.faq__item.reveal       { transition-delay: calc(var(--stagger, 0) * 60ms); }
 
 @media (prefers-reduced-motion: reduce) {
   .hero__img { animation: none; transform: none; }

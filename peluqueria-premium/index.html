@@ -8,33 +8,36 @@
   ============================================================
   PLANTILLA REUTILIZABLE — PELUQUERÍA / BARBERÍA PREMIUM
   ============================================================
-  Para adaptar esta web a un negocio real, busca las marcas
-  [PERSONALIZAR] en este archivo y en /data/content.js.
+  Dirección artística: luxury editorial + modern minimalism.
+  TODOS los datos de negocio (nombre, contacto, servicios, galería,
+  reseñas, preguntas frecuentes) viven en /data/content.js — es el
+  ÚNICO archivo que hay que tocar para adaptar la web a un cliente
+  real. No hay ningún dato real hardcodeado en este HTML: todo lo que
+  ves aquí es un placeholder de repuesto (para que la página funcione
+  igualmente sin JavaScript) que /js/render.js sustituye en tiempo de
+  carga por el contenido de content.js.
   Guía completa de personalización en README.md.
   ============================================================
 -->
 
-<!-- [PERSONALIZAR] Título y descripción SEO -->
-<title>NOIR Studio — Peluquería &amp; Barbería en [Ciudad]</title>
-<meta name="description" content="NOIR Studio, peluquería y barbería de autor en [Ciudad]. Cortes de precisión, color y tratamientos capilares. Reserva tu cita online en menos de un minuto.">
+<title>STUDIO NAME — Peluquería &amp; Barbería en [Ciudad]</title>
+<meta name="description" content="STUDIO NAME, peluquería y barbería de autor en [Ciudad]. Cortes de precisión, color y tratamientos capilares. Reserva tu cita online en menos de un minuto.">
 <meta name="keywords" content="peluquería, barbería, corte de pelo, [Ciudad], reserva de citas">
-<meta name="author" content="NOIR Studio">
+<meta name="author" content="STUDIO NAME">
 <link rel="canonical" href="https://www.tu-dominio.com/">
 
-<!-- Open Graph / redes sociales — [PERSONALIZAR] imagen y URL -->
 <meta property="og:type" content="business.business">
-<meta property="og:site_name" content="NOIR Studio">
-<meta property="og:title" content="NOIR Studio — Peluquería &amp; Barbería en [Ciudad]">
-<meta property="og:description" content="Cortes de precisión, color y tratamientos capilares. Reserva tu cita en NOIR Studio.">
-<meta property="og:image" content="https://www.tu-dominio.com/img/og-image.jpg">
+<meta property="og:site_name" content="STUDIO NAME">
+<meta property="og:title" content="STUDIO NAME — Peluquería &amp; Barbería en [Ciudad]">
+<meta property="og:description" content="Cortes de precisión, color y tratamientos capilares. Reserva tu cita en STUDIO NAME.">
+<meta property="og:image" content="https://www.tu-dominio.com/img/hero.jpg">
 <meta property="og:url" content="https://www.tu-dominio.com/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
 
-<meta name="theme-color" content="#6B5145">
+<meta name="theme-color" content="#171614">
 <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 
-<!-- Fuentes: carga optimizada, solo los pesos necesarios -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -46,12 +49,11 @@
 <link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/intro.css">
 
-<!-- Datos estructurados básicos para negocio local — [PERSONALIZAR] todos los valores -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "HairSalon",
-  "name": "NOIR Studio",
+  "name": "STUDIO NAME",
   "image": "https://www.tu-dominio.com/img/hero.jpg",
   "telephone": "[Teléfono del local]",
   "priceRange": "€€",
@@ -72,61 +74,43 @@
 <a class="skip-link" href="#main">Saltar al contenido</a>
 
 <!-- ============ INTRODUCCIÓN 3D ============ -->
-<!--
-  "Entrar en la peluquería": overlay que se muestra una vez (se recuerda
-  en localStorage). Se degrada automáticamente a una versión ligera en
-  SVG/CSS si el dispositivo es táctil, tiene poca potencia, el usuario
-  prefiere menos movimiento, o si la escena 3D tarda en cargar.
-  Lógica en js/intro.js (orquestador) y js/intro-scene.js (escena 3D,
-  se carga solo cuando hace falta).
--->
-<div class="intro" id="intro" data-intro role="dialog" aria-modal="true" aria-label="Introducción — Entrar en la peluquería" hidden>
+<div class="intro" id="intro" data-intro role="dialog" aria-modal="true" aria-label="Introducción" hidden>
   <div class="intro__bg" aria-hidden="true"></div>
-
-  <p class="intro__logo">NOIR<span>Studio</span></p>
+  <p class="intro__logo" data-bind="business.name">STUDIO NAME</p>
 
   <div class="intro__scene-wrap">
     <canvas class="intro__canvas" data-intro-canvas aria-hidden="true"></canvas>
-
     <div class="intro__lite" data-intro-lite hidden aria-hidden="true">
       <svg viewBox="0 0 236 236" role="img" aria-hidden="true">
-        <g class="intro__lite-strand" style="animation-delay:650ms" stroke="#6B5145" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.7">
+        <g class="intro__lite-strand" style="animation-delay:650ms" stroke="#171614" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.55">
           <path d="M96 58 C 66 92 52 140 60 196"/>
         </g>
-        <g class="intro__lite-strand" style="animation-delay:720ms" stroke="#6B5145" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.7">
+        <g class="intro__lite-strand" style="animation-delay:720ms" stroke="#171614" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.55">
           <path d="M114 52 C 92 90 84 145 92 202"/>
         </g>
-        <g class="intro__lite-strand" style="animation-delay:790ms" stroke="#6B5145" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.7">
+        <g class="intro__lite-strand" style="animation-delay:790ms" stroke="#171614" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.55">
           <path d="M150 54 C 176 92 186 142 176 198"/>
         </g>
-        <g class="intro__lite-strand" style="animation-delay:860ms" stroke="#6B5145" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.55">
+        <g class="intro__lite-strand" style="animation-delay:860ms" stroke="#171614" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.4">
           <path d="M132 50 C 122 94 118 148 124 204"/>
         </g>
 
-        <!--
-          Nota: el posicionamiento (translate/scale) va en un <g> exterior
-          con el atributo SVG "transform", intacto. La animación CSS va en
-          un <g> interior SIN atributo transform propio: si un mismo
-          elemento SVG tiene a la vez un atributo transform y una
-          animación CSS de transform, la animación CSS anula por completo
-          el atributo (no se combinan), así que hay que separarlos.
-        -->
         <g transform="translate(118 130) scale(0.42)">
           <g class="intro__lite-head">
             <path d="M -150 40 C -160 -140 -95 -230 0 -230 C 95 -230 160 -140 150 40 C 150 130 100 190 70 190 C 60 130 60 70 40 70 C 40 140 45 190 20 210 L -20 210 C -45 190 -40 140 -40 70 C -60 70 -60 130 -70 190 C -100 190 -150 130 -150 40 Z"
-                  fill="#F8F1DF" stroke="#6B5145" stroke-width="4" opacity="0.9"/>
+                  fill="#E8E0D3" stroke="#171614" stroke-width="4" opacity="0.9"/>
           </g>
         </g>
 
         <g transform="translate(168 148) scale(1.3)">
           <g class="intro__lite-scissors">
             <g class="intro__lite-blade intro__lite-blade--a">
-              <circle cx="-14" cy="12" r="6.5" fill="none" stroke="#6B5145" stroke-width="2.4"/>
-              <path d="M -10 8 L 18 -22" stroke="#6B5145" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+              <circle cx="-14" cy="12" r="6.5" fill="none" stroke="#B49A72" stroke-width="2.4"/>
+              <path d="M -10 8 L 18 -22" stroke="#B49A72" stroke-width="2.4" stroke-linecap="round" fill="none"/>
             </g>
             <g class="intro__lite-blade intro__lite-blade--b">
-              <circle cx="14" cy="12" r="6.5" fill="none" stroke="#6B5145" stroke-width="2.4"/>
-              <path d="M 10 8 L -18 -22" stroke="#6B5145" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+              <circle cx="14" cy="12" r="6.5" fill="none" stroke="#B49A72" stroke-width="2.4"/>
+              <path d="M 10 8 L -18 -22" stroke="#B49A72" stroke-width="2.4" stroke-linecap="round" fill="none"/>
             </g>
           </g>
         </g>
@@ -144,32 +128,23 @@
   </button>
 </div>
 
-<!-- ============ CURSOR PERSONALIZADO (desktop) ============ -->
-<div class="cursor" aria-hidden="true">
-  <div class="cursor__ring">
-    <span class="cursor__label" data-cursor-label></span>
-  </div>
-</div>
-
-<!-- ============ CABECERA ============ -->
-<header class="site-header" data-header>
-  <div class="site-header__inner">
-    <a href="#hero" class="brand">NOIR<span class="brand__mark">Studio</span></a>
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" data-header>
+  <div class="navbar__inner">
+    <a href="#hero" class="brand" data-bind="business.name">STUDIO NAME</a>
 
     <nav class="nav" aria-label="Navegación principal">
-      <ul class="nav__list">
-        <li><a href="#sobre-nosotros">Nosotros</a></li>
+      <ul class="nav__list" data-nav-list>
         <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#coleccion">Colección</a></li>
+        <li><a href="#estudio">El estudio</a></li>
         <li><a href="#galeria">Galería</a></li>
-        <li><a href="#testimonios">Opiniones</a></li>
-        <li><a href="#clientes">Clientes</a></li>
-        <li><a href="#ubicacion">Ubicación</a></li>
+        <li><a href="#opiniones">Opiniones</a></li>
+        <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
 
-    <div class="site-header__actions">
-      <a href="#reserva" class="btn btn--primary btn--sm">Reservar cita</a>
+    <div class="navbar__actions">
+      <a href="#reserva" class="btn btn--outline btn--sm">Reservar cita</a>
       <button class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
@@ -180,20 +155,18 @@
 <!-- ============ MENÚ MÓVIL ============ -->
 <div class="mobile-menu" id="mobile-menu" data-mobile-menu aria-hidden="true">
   <nav aria-label="Navegación móvil">
-    <ul class="mobile-menu__list">
-      <li style="--i:0"><a href="#sobre-nosotros" data-mobile-link>Nosotros</a></li>
-      <li style="--i:1"><a href="#servicios" data-mobile-link>Servicios</a></li>
-      <li style="--i:2"><a href="#coleccion" data-mobile-link>Colección</a></li>
-      <li style="--i:3"><a href="#galeria" data-mobile-link>Galería</a></li>
-      <li style="--i:4"><a href="#testimonios" data-mobile-link>Opiniones</a></li>
-      <li style="--i:5"><a href="#clientes" data-mobile-link>Clientes</a></li>
-      <li style="--i:6"><a href="#ubicacion" data-mobile-link>Ubicación</a></li>
+    <ul class="mobile-menu__list" data-mobile-nav-list>
+      <li style="--i:0"><a href="#servicios" data-mobile-link>Servicios</a></li>
+      <li style="--i:1"><a href="#estudio" data-mobile-link>El estudio</a></li>
+      <li style="--i:2"><a href="#galeria" data-mobile-link>Galería</a></li>
+      <li style="--i:3"><a href="#opiniones" data-mobile-link>Opiniones</a></li>
+      <li style="--i:4"><a href="#contacto" data-mobile-link>Contacto</a></li>
     </ul>
   </nav>
   <a href="#reserva" class="btn btn--primary btn--block" data-mobile-link>Reservar cita</a>
   <div class="mobile-menu__footer">
-    <a href="tel:+34600000000">[Teléfono]</a>
-    <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+    <a data-bind-href="contact.phoneHref" data-bind="contact.phoneDisplay">+34 XXX XXX XXX</a>
+    <a data-bind-href="contact.instagramUrl" target="_blank" rel="noopener">Instagram</a>
   </div>
 </div>
 
@@ -202,67 +175,68 @@
   <!-- ============ 1. HERO ============ -->
   <section class="hero" id="hero">
     <div class="hero__media">
-      <img src="img/hero.svg" alt="Interior del salón NOIR Studio, ambiente cálido y profesional" class="hero__img" fetchpriority="high">
+      <img src="img/hero.svg" alt="Espacio del estudio — fotografía o vídeo sustituible" class="hero__img" data-bind-src="hero.image" fetchpriority="high">
       <div class="hero__overlay"></div>
     </div>
 
     <div class="hero__content">
-      <p class="hero__eyebrow reveal-in" style="--d:0">Peluquería &amp; Barbería · [Ciudad]</p>
-      <h1 class="hero__title reveal-in" style="--d:1">El corte que <em>precede</em> a tu reputación.</h1>
-      <p class="hero__subtitle reveal-in" style="--d:2">Cortes de precisión, color a medida y tratamientos capilares en un espacio pensado para que cada visita sea un paréntesis de calma.</p>
+      <p class="hero__eyebrow reveal-in" style="--d:0" data-bind="business.name">STUDIO NAME</p>
+      <h1 class="hero__title reveal-in" style="--d:1">
+        <span data-bind="hero.headlineLine1">El corte que define</span><br>
+        <em data-bind="hero.headlineLine2">tu estilo.</em>
+      </h1>
+      <p class="hero__subline reveal-in" style="--d:2" data-bind="hero.subline">Precisión · Estilo · Experiencia</p>
       <div class="hero__actions reveal-in" style="--d:3">
-        <a href="#reserva" class="btn btn--primary">
-          <span>Reservar cita</span>
-        </a>
-        <a href="#servicios" class="btn btn--ghost-light">Ver servicios</a>
+        <a href="#reserva" class="btn btn--primary" data-bind="hero.ctaPrimary">Reservar cita</a>
+        <a href="#servicios" class="btn btn--ghost-light" data-bind="hero.ctaSecondary">Ver servicios</a>
       </div>
     </div>
 
-    <a href="#sobre-nosotros" class="hero__scroll" aria-label="Bajar a la siguiente sección">
+    <a href="#pilares" class="hero__scroll" aria-label="Bajar a la siguiente sección">
       <span></span>
     </a>
   </section>
 
-  <!-- ============ 2. SOBRE NOSOTROS ============ -->
-  <section class="about" id="sobre-nosotros">
-    <div class="container about__grid">
-      <div class="about__media reveal" data-reveal>
-        <img src="img/about.svg" loading="lazy" decoding="async" alt="Estilista de NOIR Studio trabajando con un cliente" width="1200" height="1500">
-      </div>
+  <!-- ============ 2. MÁS QUE UN CORTE ============ -->
+  <section class="pillars" id="pilares">
+    <div class="container">
+      <header class="section-head section-head--center reveal" data-reveal>
+        <p class="eyebrow eyebrow--center">Más que un corte</p>
+        <h2>Una experiencia diseñada alrededor de ti.</h2>
+      </header>
 
-      <div class="about__content">
-        <p class="eyebrow reveal" data-reveal>Sobre nosotros</p>
-        <h2 class="reveal" data-reveal>Oficio, cuidado y atención al detalle en cada visita.</h2>
-        <p class="about__text reveal" data-reveal>
-          NOIR Studio nace de la idea de que ir a la peluquería debería sentirse
-          como un ritual, no como un trámite. Un equipo de especialistas formados
-          en técnica clásica y tendencia actual, en un espacio diseñado para que
-          te sientas cómodo desde el primer minuto. <span class="placeholder-note">[PERSONALIZAR: texto de presentación del negocio real]</span>
-        </p>
-
-        <dl class="stats reveal" data-reveal>
-          <div class="stats__item">
-            <dt>+XX</dt>
-            <dd>Años de experiencia <span class="placeholder-tag">dato de ejemplo</span></dd>
-          </div>
-          <div class="stats__item">
-            <dt>+X.XXX</dt>
-            <dd>Clientes atendidos <span class="placeholder-tag">dato de ejemplo</span></dd>
-          </div>
-          <div class="stats__item">
-            <dt>XX</dt>
-            <dd>Especialistas <span class="placeholder-tag">dato de ejemplo</span></dd>
-          </div>
-          <div class="stats__item">
-            <dt>X,X ★</dt>
-            <dd>Valoración media <span class="placeholder-tag">dato de ejemplo</span></dd>
-          </div>
-        </dl>
-      </div>
+      <ul class="pillars__list" data-pillars-list>
+        <li class="pillars__item reveal" data-reveal>
+          <span class="pillars__number">01</span>
+          <h3>Precisión</h3>
+          <p>Cada detalle importa.</p>
+        </li>
+        <li class="pillars__item reveal" data-reveal>
+          <span class="pillars__number">02</span>
+          <h3>Estilo</h3>
+          <p>Un resultado pensado para ti.</p>
+        </li>
+        <li class="pillars__item reveal" data-reveal>
+          <span class="pillars__number">03</span>
+          <h3>Experiencia</h3>
+          <p>Mucho más que sentarse en una silla.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- ============ 3. SERVICIOS ============ -->
+  <!-- ============ 3. SECCIÓN DE IMPACTO VISUAL ============ -->
+  <section class="impact" id="impacto">
+    <img src="img/impact.svg" alt="Espacio de marca — fotografía sustituible" class="impact__media" loading="lazy" decoding="async">
+    <div class="impact__overlay" aria-hidden="true"></div>
+    <div class="impact__content">
+      <span class="impact__index">02</span>
+      <h2 class="impact__title reveal" data-reveal>TU ESTILO.<br>TU IDENTIDAD.</h2>
+      <p class="impact__text reveal" data-reveal>Una experiencia diseñada alrededor de ti, de principio a fin.</p>
+    </div>
+  </section>
+
+  <!-- ============ 4. SERVICIOS ============ -->
   <section class="services" id="servicios">
     <div class="container">
       <header class="section-head reveal" data-reveal>
@@ -270,212 +244,83 @@
         <h2>Pensados para cada tipo de cliente.</h2>
       </header>
 
-      <ul class="services__list">
-        <li class="services__item reveal" data-reveal>
-          <div class="services__num">01</div>
-          <div class="services__body">
-            <h3>Corte</h3>
-            <p>Corte personalizado según forma de rostro y tipo de cabello, con lavado y acabado incluidos.</p>
-          </div>
-          <div class="services__price">Desde <strong>XX&nbsp;€</strong></div>
-        </li>
-
-        <li class="services__item reveal" data-reveal>
-          <div class="services__num">02</div>
-          <div class="services__body">
-            <h3>Corte + Barba</h3>
-            <p>Corte de precisión combinado con perfilado y arreglo de barba con navaja.</p>
-          </div>
-          <div class="services__price">Desde <strong>XX&nbsp;€</strong></div>
-        </li>
-
-        <li class="services__item reveal" data-reveal>
-          <div class="services__num">03</div>
-          <div class="services__body">
-            <h3>Color</h3>
-            <p>Coloración, mechas y matices con productos profesionales de baja agresión.</p>
-          </div>
-          <div class="services__price">Desde <strong>XX&nbsp;€</strong></div>
-        </li>
-
-        <li class="services__item reveal" data-reveal>
-          <div class="services__num">04</div>
-          <div class="services__body">
-            <h3>Tratamientos</h3>
-            <p>Hidratación profunda, reconstrucción y rituales capilares a medida.</p>
-          </div>
-          <div class="services__price">Desde <strong>XX&nbsp;€</strong></div>
-        </li>
-      </ul>
+      <div class="services__wrap">
+        <ul class="services__list" data-services-list>
+          <li class="services__item reveal" data-reveal data-preview="img/service-1.svg">
+            <span class="services__number">01</span>
+            <div class="services__body">
+              <h3>Corte</h3>
+              <p>Corte personalizado según forma de rostro y tipo de cabello.</p>
+            </div>
+            <span class="services__duration">45 min</span>
+            <span class="services__price">25&nbsp;€</span>
+          </li>
+          <li class="services__item reveal" data-reveal data-preview="img/service-2.svg">
+            <span class="services__number">02</span>
+            <div class="services__body">
+              <h3>Corte + Barba</h3>
+              <p>Corte de precisión combinado con arreglo de barba.</p>
+            </div>
+            <span class="services__duration">60 min</span>
+            <span class="services__price">35&nbsp;€</span>
+          </li>
+          <li class="services__item reveal" data-reveal data-preview="img/service-3.svg">
+            <span class="services__number">03</span>
+            <div class="services__body">
+              <h3>Color</h3>
+              <p>Color personalizado, mechas y matices.</p>
+            </div>
+            <span class="services__duration">90 min</span>
+            <span class="services__price">Desde XX&nbsp;€</span>
+          </li>
+          <li class="services__item reveal" data-reveal data-preview="img/service-4.svg">
+            <span class="services__number">04</span>
+            <div class="services__body">
+              <h3>Tratamiento</h3>
+              <p>Hidratación profunda y rituales capilares a medida.</p>
+            </div>
+            <span class="services__duration">30 min</span>
+            <span class="services__price">Desde XX&nbsp;€</span>
+          </li>
+        </ul>
+        <div class="services__preview" data-services-preview aria-hidden="true"></div>
+      </div>
 
       <p class="services__note">Precios orientativos <span class="placeholder-tag">[PERSONALIZAR con tarifas reales]</span> · consulta disponibilidad al reservar.</p>
     </div>
   </section>
 
-  <!-- ============ 4. COLECCIÓN ============ -->
-  <section class="collection" id="coleccion">
-    <div class="container collection__head">
-      <p class="eyebrow reveal" data-reveal>Colección</p>
-      <h2 class="reveal" data-reveal>Encuentra tu estilo</h2>
-      <p class="collection__subtitle reveal" data-reveal>Un color. Un estilo. Una nueva versión de ti.</p>
+  <!-- ============ 5. EL ESTUDIO ============ -->
+  <section class="studio" id="estudio">
+    <div class="container studio__grid">
+      <div class="studio__media reveal" data-reveal>
+        <img src="img/studio.svg" loading="lazy" decoding="async" alt="Interior del estudio — fotografía sustituible" width="1200" height="1500">
+      </div>
+
+      <div class="studio__content">
+        <p class="eyebrow reveal" data-reveal>El estudio</p>
+        <h2 class="reveal" data-reveal>Un espacio creado para sentirte cómodo desde el primer momento.</h2>
+        <p class="studio__text reveal" data-reveal>
+          Diseñado para que cada visita sea un paréntesis de calma: luz natural,
+          materiales cálidos y un equipo formado en técnica clásica y tendencia
+          actual. <span class="placeholder-note">[PERSONALIZAR: texto de presentación del negocio real]</span>
+        </p>
+
+        <dl class="studio__facts reveal" data-reveal>
+          <div class="studio__fact">
+            <dt data-bind="business.city">Barcelona</dt>
+            <dd>Ubicación <span class="placeholder-tag">dato de ejemplo</span></dd>
+          </div>
+          <div class="studio__fact">
+            <dt>Desde <span data-bind="business.foundedYear">20XX</span></dt>
+            <dd>Trayectoria <span class="placeholder-tag">dato de ejemplo</span></dd>
+          </div>
+        </dl>
+      </div>
     </div>
-
-    <div class="collection__viewport">
-      <button class="collection__arrow collection__arrow--prev" data-collection-prev aria-label="Ver estilos anteriores">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-
-      <ul class="collection__track" data-collection-track>
-        <li class="collection__item reveal reveal--x" data-reveal>
-          <button class="collection__card" data-collection-trigger
-                  data-name="Blonde" data-color="Rubio clásico" data-img="img/wig-01-blonde.svg"
-                  data-desc="Luz cálida y movimiento natural, el equilibrio de siempre.">
-            <span class="collection__img-wrap"><img src="img/wig-01-blonde.svg" alt="Peluca de estilo Blonde, rubio clásico" loading="lazy" decoding="async" width="900" height="1200"></span>
-            <span class="collection__meta">
-              <span class="collection__name">Blonde</span>
-              <span class="collection__color">Rubio clásico</span>
-            </span>
-          </button>
-        </li>
-        <li class="collection__item reveal reveal--x" data-reveal>
-          <button class="collection__card" data-collection-trigger
-                  data-name="Platinum" data-color="Rubio platino" data-img="img/wig-02-platinum.svg"
-                  data-desc="Frío, luminoso y de máximo impacto visual.">
-            <span class="collection__img-wrap"><img src="img/wig-02-platinum.svg" alt="Peluca de estilo Platinum, rubio platino" loading="lazy" decoding="async" width="900" height="1200"></span>
-            <span class="collection__meta">
-              <span class="collection__name">Platinum</span>
-              <span class="collection__color">Rubio platino</span>
-            </span>
-          </button>
-        </li>
-        <li class="collection__item reveal reveal--x" data-reveal>
-          <button class="collection__card" data-collection-trigger
-                  data-name="Honey" data-color="Rubio miel" data-img="img/wig-03-honey.svg"
-                  data-desc="Reflejos dorados y suaves, cercanos y favorecedores.">
-            <span class="collection__img-wrap"><img src="img/wig-03-honey.svg" alt="Peluca de estilo Honey, rubio miel" loading="lazy" decoding="async" width="900" height="1200"></span>
-            <span class="collection__meta">
-              <span class="collection__name">Honey</span>
-              <span class="collection__color">Rubio miel</span>
-            </span>
-          </button>
-        </li>
-        <li class="collection__item reveal reveal--x" data-reveal>
-          <button class="collection__card" data-collection-trigger
-                  data-name="Brunette" data-color="Castaño" data-img="img/wig-04-brunette.svg"
-                  data-desc="Elegancia atemporal que combina con todo.">
-            <span class="collection__img-wrap"><img src="img/wig-04-brunette.svg" alt="Peluca de estilo Brunette, castaño" loading="lazy" decoding="async" width="900" height="1200"></span>
-            <span class="collection__meta">
-              <span class="collection__name">Brunette</span>
-              <span class="collection__color">Castaño</span>
-            </span>
-          </button>
-        </li>
-        <li class="collection__item reveal reveal--x" data-reveal>
-          <button class="collection__card" data-collection-trigger
-                  data-name="Chocolate" data-color="Castaño chocolate" data-img="img/wig-05-chocolate.svg"
-                  data-desc="Profundidad envolvente con un acabado rico.">
-            <span class="collection__img-wrap"><img src="img/wig-05-chocolate.svg" alt="Peluca de estilo Chocolate, castaño chocolate" loading="lazy" decoding="async" width="900" height="1200"></span>
-            <span class="collection__meta">
-              <span class="collection__name">Chocolate</span>
-              <span class="collection__color">Castaño chocolate</span>
-            </span>
-          </button>
-        </li>
-        <li class="collection__item reveal reveal--x" data-reveal>
-          <button class="collection__card" data-collection-trigger
-                  data-name="Jet Black" data-color="Negro intenso" data-img="img/wig-06-jet-black.svg"
-                  data-desc="Máximo contraste y una actitud definida.">
-            <span class="collection__img-wrap"><img src="img/wig-06-jet-black.svg" alt="Peluca de estilo Jet Black, negro intenso" loading="lazy" decoding="async" width="900" height="1200"></span>
-            <span class="collection__meta">
-              <span class="collection__name">Jet Black</span>
-              <span class="collection__color">Negro intenso</span>
-            </span>
-          </button>
-        </li>
-        <li class="collection__item reveal reveal--x" data-reveal>
-          <button class="collection__card" data-collection-trigger
-                  data-name="Auburn" data-color="Cobrizo" data-img="img/wig-07-auburn.svg"
-                  data-desc="Calidez rojiza con mucho carácter propio.">
-            <span class="collection__img-wrap"><img src="img/wig-07-auburn.svg" alt="Peluca de estilo Auburn, cobrizo" loading="lazy" decoding="async" width="900" height="1200"></span>
-            <span class="collection__meta">
-              <span class="collection__name">Auburn</span>
-              <span class="collection__color">Cobrizo</span>
-            </span>
-          </button>
-        </li>
-        <li class="collection__item reveal reveal--x" data-reveal>
-          <button class="collection__card" data-collection-trigger
-                  data-name="Copper" data-color="Pelirrojo cobrizo" data-img="img/wig-08-copper.svg"
-                  data-desc="Vibrante e inconfundible en cualquier luz.">
-            <span class="collection__img-wrap"><img src="img/wig-08-copper.svg" alt="Peluca de estilo Copper, pelirrojo cobrizo" loading="lazy" decoding="async" width="900" height="1200"></span>
-            <span class="collection__meta">
-              <span class="collection__name">Copper</span>
-              <span class="collection__color">Pelirrojo cobrizo</span>
-            </span>
-          </button>
-        </li>
-        <li class="collection__item reveal reveal--x" data-reveal>
-          <button class="collection__card" data-collection-trigger
-                  data-name="Burgundy" data-color="Borgoña" data-img="img/wig-09-burgundy.svg"
-                  data-desc="Sofisticación intensa con un punto audaz.">
-            <span class="collection__img-wrap"><img src="img/wig-09-burgundy.svg" alt="Peluca de estilo Burgundy, color borgoña" loading="lazy" decoding="async" width="900" height="1200"></span>
-            <span class="collection__meta">
-              <span class="collection__name">Burgundy</span>
-              <span class="collection__color">Borgoña</span>
-            </span>
-          </button>
-        </li>
-        <li class="collection__item reveal reveal--x" data-reveal>
-          <button class="collection__card" data-collection-trigger
-                  data-name="Silver" data-color="Gris / plata" data-img="img/wig-10-silver.svg"
-                  data-desc="Moderno y editorial, un acabado atemporal.">
-            <span class="collection__img-wrap"><img src="img/wig-10-silver.svg" alt="Peluca de estilo Silver, gris plata" loading="lazy" decoding="async" width="900" height="1200"></span>
-            <span class="collection__meta">
-              <span class="collection__name">Silver</span>
-              <span class="collection__color">Gris / plata</span>
-            </span>
-          </button>
-        </li>
-        <li class="collection__item reveal reveal--x" data-reveal>
-          <button class="collection__card" data-collection-trigger
-                  data-name="Ash Blonde" data-color="Rubio ceniza" data-img="img/wig-11-ash-blonde.svg"
-                  data-desc="Ceniza suave con un acabado mate y actual.">
-            <span class="collection__img-wrap"><img src="img/wig-11-ash-blonde.svg" alt="Peluca de estilo Ash Blonde, rubio ceniza" loading="lazy" decoding="async" width="900" height="1200"></span>
-            <span class="collection__meta">
-              <span class="collection__name">Ash Blonde</span>
-              <span class="collection__color">Rubio ceniza</span>
-            </span>
-          </button>
-        </li>
-      </ul>
-
-      <button class="collection__arrow collection__arrow--next" data-collection-next aria-label="Ver más estilos">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-
-    <p class="placeholder-note center">[PERSONALIZAR: sustituir por fotografías reales de vuestras pelucas, mismo estilo y proporción]</p>
   </section>
 
-  <!-- Detalle de la colección -->
-  <div class="collection-detail" data-collection-detail aria-hidden="true" role="dialog" aria-modal="true" aria-label="Detalle del estilo seleccionado">
-    <div class="collection-detail__panel">
-      <button class="collection-detail__close" data-collection-detail-close aria-label="Cerrar">✕</button>
-      <div class="collection-detail__media">
-        <img data-collection-detail-img src="" alt="">
-      </div>
-      <div class="collection-detail__body">
-        <p class="collection-detail__color" data-collection-detail-color></p>
-        <h3 data-collection-detail-name></h3>
-        <p class="collection-detail__desc" data-collection-detail-desc></p>
-        <div class="collection-detail__actions">
-          <a href="#reserva" class="btn btn--primary" data-collection-detail-close>Reservar este estilo</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ============ 5. GALERÍA ============ -->
+  <!-- ============ 6. GALERÍA ============ -->
   <section class="gallery" id="galeria">
     <div class="container">
       <header class="section-head reveal" data-reveal>
@@ -484,32 +329,42 @@
       </header>
     </div>
 
-    <div class="gallery__grid" data-gallery>
-      <button class="gallery__item reveal" data-reveal data-lightbox-trigger data-full="img/gallery-1.svg" data-span="2">
-        <img src="img/gallery-1.svg" loading="lazy" decoding="async" alt="Corte de precisión terminado, vista lateral">
+    <div class="gallery__grid" data-gallery-list>
+      <button class="gallery__item reveal" data-reveal data-lightbox-trigger data-full="img/gallery-1.svg">
+        <img src="img/gallery-1.svg" loading="lazy" decoding="async" alt="Corte de precisión terminado">
+        <span class="gallery__tag">Corte</span>
       </button>
       <button class="gallery__item reveal" data-reveal data-lightbox-trigger data-full="img/gallery-2.svg">
-        <img src="img/gallery-2.svg" loading="lazy" decoding="async" alt="Detalle de degradado en barbería">
+        <img src="img/gallery-2.svg" loading="lazy" decoding="async" alt="Detalle de arreglo de barba">
+        <span class="gallery__tag">Barba</span>
       </button>
       <button class="gallery__item reveal" data-reveal data-lightbox-trigger data-full="img/gallery-3.svg">
-        <img src="img/gallery-3.svg" loading="lazy" decoding="async" alt="Interior del salón, zona de espera">
+        <img src="img/gallery-3.svg" loading="lazy" decoding="async" alt="Interior del estudio">
+        <span class="gallery__tag">Interior</span>
       </button>
-      <button class="gallery__item reveal" data-reveal data-lightbox-trigger data-full="img/gallery-4.svg" data-span="2">
-        <img src="img/gallery-4.svg" loading="lazy" decoding="async" alt="Peinado editorial terminado">
+      <button class="gallery__item reveal" data-reveal data-lightbox-trigger data-full="img/gallery-4.svg">
+        <img src="img/gallery-4.svg" loading="lazy" decoding="async" alt="Aplicación de color">
+        <span class="gallery__tag">Color</span>
       </button>
       <button class="gallery__item reveal" data-reveal data-lightbox-trigger data-full="img/gallery-5.svg">
-        <img src="img/gallery-5.svg" loading="lazy" decoding="async" alt="Detalle de herramientas de corte">
+        <img src="img/gallery-5.svg" loading="lazy" decoding="async" alt="Peinado y styling">
+        <span class="gallery__tag">Styling</span>
       </button>
       <button class="gallery__item reveal" data-reveal data-lightbox-trigger data-full="img/gallery-6.svg">
-        <img src="img/gallery-6.svg" loading="lazy" decoding="async" alt="Aplicación de color en mechas">
+        <img src="img/gallery-6.svg" loading="lazy" decoding="async" alt="Detalle de herramientas">
+        <span class="gallery__tag">Detalle</span>
       </button>
-      <button class="gallery__item reveal" data-reveal data-lightbox-trigger data-full="img/gallery-7.svg" data-span="2">
-        <img src="img/gallery-7.svg" loading="lazy" decoding="async" alt="Puesto de trabajo del salón">
+      <button class="gallery__item reveal" data-reveal data-lightbox-trigger data-full="img/gallery-7.svg">
+        <img src="img/gallery-7.svg" loading="lazy" decoding="async" alt="Corte terminado, otro ángulo">
+        <span class="gallery__tag">Corte</span>
       </button>
       <button class="gallery__item reveal" data-reveal data-lightbox-trigger data-full="img/gallery-8.svg">
-        <img src="img/gallery-8.svg" loading="lazy" decoding="async" alt="Resultado final de corte y barba">
+        <img src="img/gallery-8.svg" loading="lazy" decoding="async" alt="Resultado final">
+        <span class="gallery__tag">Resultado</span>
       </button>
     </div>
+
+    <p class="placeholder-note center">[PERSONALIZAR: sustituir por fotografías reales del negocio, misma proporción por imagen]</p>
   </section>
 
   <!-- Lightbox -->
@@ -520,188 +375,237 @@
     <button class="lightbox__nav lightbox__nav--next" data-lightbox-next aria-label="Imagen siguiente">›</button>
   </div>
 
-  <!-- ============ 6. EXPERIENCIA ============ -->
-  <section class="experience" id="experiencia">
-    <div class="experience__intro container reveal" data-reveal>
-      <p class="eyebrow">La experiencia</p>
-      <h2>Más que un corte.</h2>
-      <p class="experience__lead">Desde que cruzas la puerta hasta que te miras al espejo por última vez, cada paso está pensado para que salgas mejor de lo que entraste.</p>
-    </div>
-
-    <div class="experience__grid">
-      <div class="experience__step reveal" data-reveal>
-        <span class="experience__step-num">01</span>
-        <img src="img/experience-1.svg" loading="lazy" decoding="async" alt="Recepción y consulta inicial con el cliente">
-        <h3>Bienvenida</h3>
-        <p>Consulta personalizada: escuchamos qué buscas y te asesoramos con honestidad.</p>
-      </div>
-      <div class="experience__step reveal" data-reveal>
-        <span class="experience__step-num">02</span>
-        <img src="img/experience-2.svg" loading="lazy" decoding="async" alt="Estilista realizando un servicio con precisión">
-        <h3>El servicio</h3>
-        <p>Técnica precisa, producto profesional y tiempo suficiente para hacerlo bien.</p>
-      </div>
-      <div class="experience__step reveal" data-reveal>
-        <span class="experience__step-num">03</span>
-        <img src="img/experience-3.svg" loading="lazy" decoding="async" alt="Cliente satisfecho viendo el resultado final en el espejo">
-        <h3>El resultado</h3>
-        <p>Acabado impecable y consejos de mantenimiento para que dure más.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 7. TESTIMONIOS ============ -->
-  <section class="testimonials" id="testimonios">
-    <div class="container">
-      <header class="section-head reveal" data-reveal>
-        <p class="eyebrow">Opiniones</p>
-        <h2>Lo que dicen nuestros clientes.</h2>
-      </header>
-
-      <div class="testimonials__track" data-testimonials>
-        <figure class="testimonial reveal" data-reveal>
-          <blockquote>“[Testimonio real del cliente]”</blockquote>
-          <figcaption><span>[Nombre del cliente]</span><span class="testimonial__stars">★★★★★</span></figcaption>
-        </figure>
-        <figure class="testimonial reveal" data-reveal>
-          <blockquote>“[Testimonio real del cliente]”</blockquote>
-          <figcaption><span>[Nombre del cliente]</span><span class="testimonial__stars">★★★★★</span></figcaption>
-        </figure>
-        <figure class="testimonial reveal" data-reveal>
-          <blockquote>“[Testimonio real del cliente]”</blockquote>
-          <figcaption><span>[Nombre del cliente]</span><span class="testimonial__stars">★★★★★</span></figcaption>
-        </figure>
-        <figure class="testimonial reveal" data-reveal>
-          <blockquote>“[Testimonio real del cliente]”</blockquote>
-          <figcaption><span>[Nombre del cliente]</span><span class="testimonial__stars">★★★★★</span></figcaption>
-        </figure>
-      </div>
-      <p class="placeholder-note center">[PERSONALIZAR: sustituir por reseñas reales de Google / Instagram]</p>
-    </div>
-  </section>
-
-  <!-- ============ 8. CLIENTES ============ -->
-  <section class="clients" id="clientes">
-    <div class="container">
-      <header class="section-head reveal" data-reveal>
-        <p class="eyebrow">Clientes</p>
-        <h2>Miles de clientes, un mismo cuidado.</h2>
-      </header>
-      <p class="clients__text reveal" data-reveal>
-        Cada cita empieza con una conversación y termina con un resultado que se
-        nota. Trabajamos para que quien entra por primera vez vuelva siempre.
-        <span class="placeholder-note">[PERSONALIZAR: texto o cifras reales sobre vuestra clientela]</span>
-      </p>
-    </div>
-  </section>
-
-  <!-- ============ 9. RESERVA ============ -->
+  <!-- ============ 7. RESERVA ============ -->
   <section class="booking" id="reserva">
-    <div class="container booking__grid">
-      <div class="booking__intro reveal" data-reveal>
-        <p class="eyebrow">Reserva</p>
-        <h2>Pide tu cita en menos de un minuto.</h2>
-        <p>Elige servicio, fecha y hora. Te confirmaremos la disponibilidad lo antes posible.</p>
+    <div class="container">
+      <header class="section-head section-head--center reveal" data-reveal>
+        <p class="eyebrow eyebrow--center">Reserva</p>
+        <h2>Reserva tu cita</h2>
+        <p class="booking__lead">Pide tu cita en menos de un minuto.</p>
+      </header>
 
-        <div class="booking__alt">
-          <p>¿Prefieres algo más directo?</p>
-          <a href="#" class="btn btn--whatsapp" data-whatsapp-btn>
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-whatsapp"><path d="M17.6 6.3A8.9 8.9 0 0 0 12 4a8.9 8.9 0 0 0-7.7 13.4L3 21l3.7-1.2A8.9 8.9 0 0 0 12 21a8.9 8.9 0 0 0 8.9-9 8.9 8.9 0 0 0-3.3-5.7ZM12 19.4a7.3 7.3 0 0 1-3.8-1l-.3-.2-2.5.8.8-2.4-.2-.3A7.4 7.4 0 1 1 19.4 12 7.4 7.4 0 0 1 12 19.4Zm3.9-5.5c-.2-.1-1.3-.6-1.5-.7-.2-.1-.3-.1-.5.1s-.6.7-.7.9-.3.2-.5.1a5.9 5.9 0 0 1-2.9-2.6c-.2-.4.2-.3.6-1.1.1-.1.1-.3 0-.4l-.7-1.6c-.2-.4-.3-.3-.5-.3h-.4a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.8 2 4.7 4.7 0 0 0 1 2.5 10.6 10.6 0 0 0 4.1 3.6c1.5.6 1.5.4 1.8.4a1.5 1.5 0 0 0 1-.7 1.3 1.3 0 0 0 .1-.7c-.1-.1-.2-.2-.5-.3Z"/></svg>
-            <span>Reservar por WhatsApp</span>
-          </a>
-        </div>
-      </div>
+      <div class="booking-wizard" data-wizard>
+        <ol class="wizard__steps" data-wizard-steps aria-hidden="true">
+          <li class="wizard__step is-current" data-step="1"><span class="wizard__step-num">01</span><span class="wizard__step-label">Servicio</span></li>
+          <li class="wizard__step" data-step="2"><span class="wizard__step-num">02</span><span class="wizard__step-label">Fecha</span></li>
+          <li class="wizard__step" data-step="3"><span class="wizard__step-num">03</span><span class="wizard__step-label">Datos</span></li>
+          <li class="wizard__step" data-step="4"><span class="wizard__step-num">04</span><span class="wizard__step-label">Confirmación</span></li>
+        </ol>
 
-      <form class="booking-form" id="booking-form" novalidate>
-        <div class="booking-form__row">
-          <div class="field">
-            <label for="bf-service">Servicio</label>
-            <select id="bf-service" name="servicio" required>
-              <option value="" disabled selected>Selecciona un servicio</option>
-              <option value="Corte">Corte</option>
-              <option value="Corte + Barba">Corte + Barba</option>
-              <option value="Color">Color</option>
-              <option value="Tratamientos">Tratamientos</option>
-            </select>
+        <form class="wizard__form" id="booking-form" data-wizard-form novalidate>
+
+          <div class="wizard__panel" data-panel="1">
+            <div class="field">
+              <label for="bf-service">Servicio</label>
+              <select id="bf-service" name="servicio" required>
+                <option value="" disabled selected>Selecciona un servicio</option>
+                <option value="Corte">Corte — Desde 25 €</option>
+                <option value="Corte + Barba">Corte + Barba — Desde 35 €</option>
+                <option value="Color">Color — Desde XX €</option>
+                <option value="Tratamiento">Tratamiento — Desde XX €</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="bf-pro">Profesional</label>
+              <select id="bf-pro" name="profesional">
+                <option value="Sin preferencia" selected>Sin preferencia</option>
+                <option value="Profesional 01">Profesional 01</option>
+                <option value="Profesional 02">Profesional 02</option>
+                <option value="Profesional 03">Profesional 03</option>
+              </select>
+            </div>
           </div>
-        </div>
 
-        <div class="booking-form__row booking-form__row--split">
-          <div class="field">
-            <label for="bf-date">Fecha</label>
-            <input type="date" id="bf-date" name="fecha" required>
+          <div class="wizard__panel" data-panel="2" hidden>
+            <div class="field">
+              <label for="bf-date">Fecha</label>
+              <input type="date" id="bf-date" name="fecha" required>
+            </div>
+            <div class="field">
+              <label for="bf-time">Hora</label>
+              <select id="bf-time" name="hora" required>
+                <option value="" disabled selected>--:--</option>
+              </select>
+            </div>
           </div>
-          <div class="field">
-            <label for="bf-time">Hora</label>
-            <select id="bf-time" name="hora" required>
-              <option value="" disabled selected>--:--</option>
-            </select>
+
+          <div class="wizard__panel" data-panel="3" hidden>
+            <div class="field">
+              <label for="bf-name">Nombre</label>
+              <input type="text" id="bf-name" name="nombre" autocomplete="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="field">
+              <label for="bf-phone">Teléfono</label>
+              <input type="tel" id="bf-phone" name="telefono" autocomplete="tel" placeholder="600 000 000" required>
+            </div>
           </div>
-        </div>
 
-        <div class="booking-form__row booking-form__row--split">
-          <div class="field">
-            <label for="bf-name">Nombre</label>
-            <input type="text" id="bf-name" name="nombre" autocomplete="name" placeholder="Tu nombre" required>
+          <div class="wizard__panel wizard__panel--summary" data-panel="4" hidden>
+            <dl class="wizard__summary" data-wizard-summary></dl>
+            <p class="wizard__disclaimer">Al confirmar aceptas nuestra <a href="#">política de privacidad</a>. Esta reserva quedará pendiente de confirmación por parte del estudio.</p>
           </div>
-          <div class="field">
-            <label for="bf-phone">Teléfono</label>
-            <input type="tel" id="bf-phone" name="telefono" autocomplete="tel" placeholder="600 000 000" required>
+
+          <p class="field-error" data-form-error role="alert" hidden></p>
+
+          <div class="wizard__nav">
+            <button type="button" class="btn btn--outline" data-wizard-prev hidden>Atrás</button>
+            <button type="button" class="btn btn--primary" data-wizard-next>Continuar</button>
+            <button type="submit" class="btn btn--primary" data-wizard-submit hidden>Confirmar reserva</button>
           </div>
-        </div>
+        </form>
 
-        <p class="field-error" data-form-error role="alert" hidden></p>
-
-        <button type="submit" class="btn btn--primary btn--block" data-submit-btn>
-          <span class="btn__label">Solicitar reserva</span>
-        </button>
-
-        <div class="booking-form__success" data-form-success hidden>
+        <div class="wizard__success" data-form-success hidden>
           <svg viewBox="0 0 52 52" class="success-check" aria-hidden="true">
             <circle cx="26" cy="26" r="25" fill="none"/>
             <path fill="none" d="M14 27l7 7 17-17"/>
           </svg>
           <p>Solicitud enviada. Te confirmaremos la cita muy pronto.</p>
         </div>
+      </div>
 
-        <p class="booking-form__disclaimer">Al enviar aceptas nuestra <a href="#">política de privacidad</a>. Esta reserva quedará pendiente de confirmación por parte del salón.</p>
-      </form>
+      <div class="booking__alt">
+        <p>¿Prefieres algo más directo?</p>
+        <a href="#" class="btn btn--whatsapp" data-whatsapp-btn>
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-whatsapp"><path d="M17.6 6.3A8.9 8.9 0 0 0 12 4a8.9 8.9 0 0 0-7.7 13.4L3 21l3.7-1.2A8.9 8.9 0 0 0 12 21a8.9 8.9 0 0 0 8.9-9 8.9 8.9 0 0 0-3.3-5.7ZM12 19.4a7.3 7.3 0 0 1-3.8-1l-.3-.2-2.5.8.8-2.4-.2-.3A7.4 7.4 0 1 1 19.4 12 7.4 7.4 0 0 1 12 19.4Zm3.9-5.5c-.2-.1-1.3-.6-1.5-.7-.2-.1-.3-.1-.5.1s-.6.7-.7.9-.3.2-.5.1a5.9 5.9 0 0 1-2.9-2.6c-.2-.4.2-.3.6-1.1.1-.1.1-.3 0-.4l-.7-1.6c-.2-.4-.3-.3-.5-.3h-.4a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.8 2 4.7 4.7 0 0 0 1 2.5 10.6 10.6 0 0 0 4.1 3.6c1.5.6 1.5.4 1.8.4a1.5 1.5 0 0 0 1-.7 1.3 1.3 0 0 0 .1-.7c-.1-.1-.2-.2-.5-.3Z"/></svg>
+          <span>Reservar por WhatsApp</span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- ============ 10. UBICACIÓN ============ -->
-  <section class="location" id="ubicacion">
-    <div class="container location__grid">
-      <div class="location__info reveal" data-reveal>
-        <p class="eyebrow">Ubicación</p>
-        <h2>Visítanos</h2>
+  <!-- ============ 8. OPINIONES ============ -->
+  <section class="testimonials" id="opiniones">
+    <div class="container">
+      <header class="section-head reveal" data-reveal>
+        <p class="eyebrow">Opiniones</p>
+        <h2>Lo que dicen nuestros clientes.</h2>
+      </header>
 
-        <dl class="location__list">
+      <div class="testimonials__grid" data-testimonials-list>
+        <figure class="testimonial reveal" data-reveal>
+          <span class="testimonial__stars" aria-hidden="true">★★★★★</span>
+          <blockquote>“[Opinión del cliente]”</blockquote>
+          <figcaption>[Nombre del cliente]</figcaption>
+        </figure>
+        <figure class="testimonial reveal" data-reveal>
+          <span class="testimonial__stars" aria-hidden="true">★★★★★</span>
+          <blockquote>“[Opinión del cliente]”</blockquote>
+          <figcaption>[Nombre del cliente]</figcaption>
+        </figure>
+        <figure class="testimonial reveal" data-reveal>
+          <span class="testimonial__stars" aria-hidden="true">★★★★★</span>
+          <blockquote>“[Opinión del cliente]”</blockquote>
+          <figcaption>[Nombre del cliente]</figcaption>
+        </figure>
+        <figure class="testimonial reveal" data-reveal>
+          <span class="testimonial__stars" aria-hidden="true">★★★★★</span>
+          <blockquote>“[Opinión del cliente]”</blockquote>
+          <figcaption>[Nombre del cliente]</figcaption>
+        </figure>
+      </div>
+      <p class="placeholder-note center">[PERSONALIZAR: sustituir por reseñas reales de Google / Instagram]</p>
+    </div>
+  </section>
+
+  <!-- ============ 9. PREGUNTAS FRECUENTES ============ -->
+  <section class="faq" id="faq">
+    <div class="container container--narrow">
+      <header class="section-head reveal" data-reveal>
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>¿Tienes dudas?</h2>
+      </header>
+
+      <div class="faq__list" data-faq-list>
+        <div class="faq__item reveal" data-reveal data-faq-item>
+          <button class="faq__question" data-faq-trigger aria-expanded="false">
+            <span>¿Necesito reservar con antelación?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer" data-faq-answer hidden>
+            <p>Recomendamos reservar con unos días de antelación, especialmente para fines de semana, aunque también atendemos citas de última hora según disponibilidad.</p>
+          </div>
+        </div>
+        <div class="faq__item reveal" data-reveal data-faq-item>
+          <button class="faq__question" data-faq-trigger aria-expanded="false">
+            <span>¿Qué servicios ofrecéis?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer" data-faq-answer hidden>
+            <p>Corte, corte y barba, color y tratamientos capilares. Puedes ver el detalle de cada uno en la sección de servicios.</p>
+          </div>
+        </div>
+        <div class="faq__item reveal" data-reveal data-faq-item>
+          <button class="faq__question" data-faq-trigger aria-expanded="false">
+            <span>¿Puedo elegir profesional?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer" data-faq-answer hidden>
+            <p>Sí, al reservar puedes seleccionar un profesional concreto o dejarlo sin preferencia y te asignaremos el primero disponible.</p>
+          </div>
+        </div>
+        <div class="faq__item reveal" data-reveal data-faq-item>
+          <button class="faq__question" data-faq-trigger aria-expanded="false">
+            <span>¿Dónde está el estudio?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer" data-faq-answer hidden>
+            <p>[Dirección del local], [Ciudad]. Tienes el enlace a Google Maps en la sección de contacto.</p>
+          </div>
+        </div>
+        <div class="faq__item reveal" data-reveal data-faq-item>
+          <button class="faq__question" data-faq-trigger aria-expanded="false">
+            <span>¿Cómo puedo cancelar o modificar mi cita?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer" data-faq-answer hidden>
+            <p>Escríbenos por WhatsApp o llámanos con la mayor antelación posible y te ayudamos a reprogramarla.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10. CONTACTO ============ -->
+  <section class="contact" id="contacto">
+    <div class="container contact__grid">
+      <div class="contact__info reveal" data-reveal>
+        <p class="eyebrow">Contacto</p>
+        <h2 data-bind="business.name">STUDIO NAME</h2>
+
+        <dl class="contact__list">
           <div>
             <dt>Dirección</dt>
-            <dd>[Dirección del local]<br>[Código postal], [Ciudad]</dd>
+            <dd data-bind="contact.addressLine1">[Dirección del local]</dd>
+            <dd data-bind="contact.addressLine2">[Código postal], [Ciudad]</dd>
           </div>
           <div>
             <dt>Horario</dt>
-            <dd>[Horario de apertura]<br>[Días de la semana]</dd>
+            <dd data-bind="contact.hoursShort">L–V 09:00–20:00</dd>
           </div>
           <div>
             <dt>Teléfono</dt>
-            <dd><a href="tel:+34600000000">[Teléfono del local]</a></dd>
+            <dd><a data-bind-href="contact.phoneHref" data-bind="contact.phoneDisplay">+34 XXX XXX XXX</a></dd>
+          </div>
+          <div>
+            <dt>Instagram</dt>
+            <dd><a data-bind-href="contact.instagramUrl" data-bind="contact.instagramHandle" target="_blank" rel="noopener">@studioname</a></dd>
           </div>
         </dl>
 
-        <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn--outline">Cómo llegar</a>
+        <div class="contact__actions">
+          <a data-bind-href="contact.mapsUrl" target="_blank" rel="noopener" class="btn btn--outline">Cómo llegar</a>
+          <a href="#" data-whatsapp-btn class="btn btn--primary">Contactar</a>
+        </div>
       </div>
 
-      <div class="location__map reveal" data-reveal>
+      <div class="contact__map reveal" data-reveal>
         <!--
           [PERSONALIZAR] Sustituye este bloque por el iframe real de Google Maps:
           <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="100%"
                   style="border:0" allowfullscreen loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade" title="Ubicación de NOIR Studio"></iframe>
+                  referrerpolicy="no-referrer-when-downgrade" title="Ubicación del estudio"></iframe>
         -->
-        <div class="location__map-placeholder">
+        <div class="contact__map-placeholder">
           <span>Mapa de Google Maps</span>
           <p>Inserta aquí el iframe de Google Maps con la dirección real del local.</p>
         </div>
@@ -715,48 +619,46 @@
 <footer class="site-footer">
   <div class="container site-footer__grid">
     <div class="site-footer__brand">
-      <a href="#hero" class="brand brand--footer">NOIR<span class="brand__mark">Studio</span></a>
-      <p>Peluquería &amp; barbería de autor en [Ciudad].</p>
+      <a href="#hero" class="brand brand--footer" data-bind="business.name">STUDIO NAME</a>
+      <p data-bind="business.city">Barcelona</p>
+      <p data-bind="contact.hoursShort">L–V 09:00–20:00</p>
     </div>
 
     <nav class="site-footer__nav" aria-label="Navegación de pie de página">
-      <h4>Navegación</h4>
       <ul>
-        <li><a href="#sobre-nosotros">Nosotros</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#galeria">Galería</a></li>
-        <li><a href="#reserva">Reserva</a></li>
-        <li><a href="#ubicacion">Ubicación</a></li>
+        <li><a href="#reserva">Reservas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
 
     <div class="site-footer__contact">
-      <h4>Contacto</h4>
       <ul>
-        <li><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a data-bind-href="contact.instagramUrl" target="_blank" rel="noopener">Instagram</a></li>
         <li><a href="#" data-whatsapp-btn>WhatsApp</a></li>
-        <li><a href="tel:+34600000000">[Teléfono]</a></li>
-        <li>[Dirección del local]</li>
+        <li><a data-bind-href="contact.mapsUrl" target="_blank" rel="noopener">Google Maps</a></li>
+        <li><a href="#intro" data-intro-replay>Ver introducción</a></li>
       </ul>
     </div>
   </div>
 
   <div class="container site-footer__bottom">
-    <p>© <span data-year></span> NOIR Studio. Todos los derechos reservados.</p>
+    <p>© <span data-year></span> <span data-bind="business.name">STUDIO NAME</span>. Todos los derechos reservados.</p>
     <div class="site-footer__legal">
       <a href="#">Aviso legal</a>
       <a href="#">Política de privacidad</a>
-      <a href="#intro" data-intro-replay>Ver introducción</a>
     </div>
   </div>
 </footer>
 
+<script src="data/content.js"></script>
+<script src="js/render.js"></script>
 <script src="js/intro.js" type="module"></script>
-<script src="js/cursor.js" defer></script>
 <script src="js/reveal.js" defer></script>
 <script src="js/gallery.js" defer></script>
-<script src="js/collection.js" defer></script>
 <script src="js/booking.js" defer></script>
+<script src="js/faq.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>

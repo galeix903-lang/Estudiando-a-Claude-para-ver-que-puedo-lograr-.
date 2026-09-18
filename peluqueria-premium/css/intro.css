@@ -19,7 +19,7 @@ html[data-intro-active] body {
   align-items: center;
   justify-content: center;
   gap: clamp(1.5rem, 4vw, 3rem);
-  background: var(--c-bg);
+  background: var(--color-background);
   transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
 }
 
@@ -27,7 +27,7 @@ html[data-intro-active] body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(120% 90% at 50% 18%, var(--c-vanilla) 0%, var(--c-rose) 58%, var(--c-white) 100%);
+    radial-gradient(120% 90% at 50% 18%, var(--color-white) 0%, var(--color-background) 55%, var(--color-secondary) 100%);
 }
 
 .intro__logo {
@@ -36,7 +36,7 @@ html[data-intro-active] body {
   font-family: var(--f-display);
   font-size: clamp(1.5rem, 3vw, 2.1rem);
   letter-spacing: 0.03em;
-  color: var(--c-ink);
+  color: var(--color-ink);
   opacity: 0;
   transform: translateY(14px);
   animation: intro-in 0.8s var(--ease-out) forwards;
@@ -48,7 +48,7 @@ html[data-intro-active] body {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--c-accent);
+  color: var(--color-accent);
   margin-left: 0.4em;
 }
 
@@ -153,7 +153,7 @@ html[data-intro-active] body {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--c-ink-soft);
+  color: var(--color-ink-soft);
   opacity: 0;
   animation: intro-in 0.8s var(--ease-out) forwards;
   animation-delay: 1300ms;
@@ -162,7 +162,7 @@ html[data-intro-active] body {
 .intro__prompt-dot {
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: var(--c-accent);
+  background: var(--color-accent);
   animation: intro-pulse 1.8s ease-in-out infinite;
 }
 @keyframes intro-pulse {
