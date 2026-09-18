@@ -1,7 +1,9 @@
-/* Cursor personalizado — un punto y un anillo morado que siguen al
-   puntero, solo en escritorio con puntero fino. Sustituye por completo
-   al cursor nativo del sistema (ver la regla "html.has-custom-cursor"
-   en css/base.css). */
+/* Cursor personalizado — un punto y un anillo que siguen al puntero,
+   solo en escritorio con puntero fino. Sustituye por completo al cursor
+   nativo del sistema (ver la regla "html.has-custom-cursor" en
+   css/base.css). Sobre la galería y la colección, el anillo se
+   convierte en una pequeña píldora con una palabra ("Ver" / "Ver
+   estilo"): un cursor minimalista tipo etiqueta, diseño propio. */
 (function () {
   const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   if (!supportsFinePointer) return;
@@ -11,6 +13,7 @@
 
   const dot = cursor.querySelector('.cursor__dot');
   const ring = cursor.querySelector('.cursor__ring');
+  const label = cursor.querySelector('[data-cursor-label]');
 
   // Solo ocultamos el cursor nativo una vez que el propio cursor
   // personalizado está listo para sustituirlo.
@@ -48,11 +51,24 @@
   requestAnimationFrame(loop);
 
   const interactive = 'a, button, input, select, textarea, [data-lightbox-trigger], [data-collection-trigger]';
+  const labelledTriggers = [
+    { selector: '[data-lightbox-trigger]', text: 'Ver' },
+    { selector: '[data-collection-trigger]', text: 'Ver estilo' },
+  ];
+
   document.addEventListener('mouseover', (e) => {
     if (e.target.closest(interactive)) cursor.classList.add('is-hover');
+    const labelled = labelledTriggers.find((t) => e.target.closest(t.selector));
+    if (labelled) {
+      label.textContent = labelled.text;
+      cursor.classList.add('is-label');
+    }
   });
   document.addEventListener('mouseout', (e) => {
     if (e.target.closest(interactive)) cursor.classList.remove('is-hover');
+    if (labelledTriggers.some((t) => e.target.closest(t.selector))) {
+      cursor.classList.remove('is-label');
+    }
   });
 
   document.addEventListener('mousedown', () => { pressed = true; });

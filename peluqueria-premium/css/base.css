@@ -159,29 +159,58 @@ html.has-custom-cursor * {
 .cursor__ring {
   position: absolute;
   top: 0; left: 0;
-  border-radius: 50%;
+  border-radius: 999px;
   /* Posición actualizada por js/cursor.js en cada frame; sin transition
      sobre "transform" aquí (competiría con esa actualización y el
      seguimiento del puntero iría a tirones). */
 }
 .cursor__dot {
   width: 6px; height: 6px;
-  background: var(--c-cursor-purple, #8B5CF6);
+  background: var(--c-accent);
+  transition: opacity var(--dur-fast) var(--ease-out);
 }
 .cursor__ring {
   width: 34px; height: 34px;
-  border: 1.5px solid rgba(139, 92, 246, 0.55);
-  /* El tamaño de hover se anima con "width/height" (no "transform"): el
-     propio "transform" de este elemento lo pisa js/cursor.js cada frame
-     para la posición y el gesto de clic, así que una transición CSS
-     sobre "transform" aquí volvería a competir con esa actualización. */
+  border: 1.5px solid var(--c-line-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* El tamaño/forma de hover se anima con estas propiedades (no
+     "transform"): el propio "transform" de este elemento lo pisa
+     js/cursor.js cada frame para la posición y el gesto de clic, así
+     que una transition CSS sobre "transform" aquí volvería a competir
+     con esa actualización. */
   transition: width var(--dur-fast) var(--ease-out), height var(--dur-fast) var(--ease-out),
-              border-color var(--dur-fast) var(--ease-out);
+              border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
 }
 .cursor.is-hover .cursor__ring {
-  width: 52px; height: 52px;
-  border-color: var(--c-cursor-purple, #8B5CF6);
+  width: 46px; height: 46px;
+  border-color: var(--c-accent);
 }
+
+/* Estado "etiqueta": sobre la galería y la colección, el anillo se
+   convierte en una pequeña píldora con una palabra que invita a mirar
+   más de cerca — un guiño minimalista a cursores de marcas premium,
+   sin reproducir el diseño de ninguna en concreto. */
+.cursor.is-label .cursor__dot { opacity: 0; }
+.cursor.is-label .cursor__ring {
+  width: 84px; height: 34px;
+  border-radius: 999px;
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+}
+.cursor__label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-cream);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+.cursor.is-label .cursor__label { opacity: 1; }
 
 @media (hover: none), (pointer: coarse) {
   .cursor { display: none; }
