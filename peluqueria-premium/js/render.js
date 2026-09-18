@@ -110,6 +110,85 @@
 
   // ---------- El estudio: ya enlazado vía data-bind ----------
 
+  // ---------- Resultados (comparador antes/después) ----------
+  const transformations = get('transformations') || [];
+  const compareList = document.querySelector('[data-compare-list]');
+  if (compareList && transformations.length) {
+    compareList.innerHTML = transformations
+      .map(
+        (t) => `
+        <figure class="compare reveal" data-reveal>
+          <div class="compare__frame" data-compare tabindex="0" role="slider" aria-label="Comparar antes y después: ${t.label}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img class="compare__img compare__img--after" src="${t.afterImage}" alt="Después — ${t.label}" loading="lazy" decoding="async">
+            <div class="compare__before-wrap" data-compare-before-wrap>
+              <img class="compare__img compare__img--before" src="${t.beforeImage}" alt="Antes — ${t.label}" loading="lazy" decoding="async">
+            </div>
+            <span class="compare__tag compare__tag--before">Antes</span>
+            <span class="compare__tag compare__tag--after">Después</span>
+            <div class="compare__handle" data-compare-handle aria-hidden="true">
+              <span class="compare__handle-line"></span>
+              <span class="compare__handle-grip">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6 3 12l5 6M16 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </div>
+          <figcaption class="compare__meta">
+            <span class="compare__label">${t.label}</span>
+            <span class="compare__category">${t.category}</span>
+          </figcaption>
+        </figure>`
+      )
+      .join('');
+  }
+
+  // ---------- La experiencia (pasos + imagen fija que cambia con el scroll) ----------
+  const experienceSteps = get('experienceSteps') || [];
+  const experienceList = document.querySelector('[data-experience-list]');
+  if (experienceList && experienceSteps.length) {
+    experienceList.innerHTML = experienceSteps
+      .map(
+        (s, i) => `
+        <li class="exp__step${i === 0 ? ' is-current' : ''}" data-exp-step="${i + 1}">
+          <span class="exp__step-line" aria-hidden="true"></span>
+          <span class="exp__step-num">${s.number}</span>
+          <h3>${s.title}</h3>
+          <p>${s.text}</p>
+        </li>`
+      )
+      .join('');
+  }
+  const experienceMedia = document.querySelector('[data-experience-media]');
+  if (experienceMedia && experienceSteps.length) {
+    experienceMedia.innerHTML = experienceSteps
+      .map(
+        (s, i) => `<img class="${i === 0 ? 'is-active' : ''}" src="${s.image}" loading="${i === 0 ? 'eager' : 'lazy'}" decoding="async" alt="${s.title}">`
+      )
+      .join('');
+  }
+
+  // ---------- El equipo ----------
+  const teamMembers = get('teamMembers') || [];
+  const teamList = document.querySelector('[data-team-list]');
+  if (teamList && teamMembers.length) {
+    teamList.innerHTML = teamMembers
+      .map(
+        (m) => `
+        <li class="team__member reveal" data-reveal>
+          <div class="team__photo-wrap" tabindex="0">
+            <span class="team__number">${m.number}</span>
+            <img class="team__photo" src="${m.photo}" loading="lazy" decoding="async" alt="${m.name}, ${m.role}">
+            <div class="team__caption">
+              <p class="team__name">${m.name}</p>
+              <p class="team__role">${m.role}</p>
+              <p class="team__bio">${m.bio}</p>
+              ${m.instagram ? `<a class="team__instagram" href="${m.instagram}" target="_blank" rel="noopener">Instagram</a>` : ''}
+            </div>
+          </div>
+        </li>`
+      )
+      .join('');
+  }
+
   // ---------- Galería ----------
   const gallery = get('gallery') || [];
   const galleryGrid = document.querySelector('[data-gallery-list]');

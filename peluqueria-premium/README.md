@@ -49,6 +49,9 @@ peluqueria-premium/
 │   ├── booking.js         Asistente de reserva en 4 pasos + mensaje de
 │   │                      WhatsApp dinámico
 │   ├── faq.js             Acordeón de preguntas frecuentes
+│   ├── experience.js      Pasos de "La experiencia" dirigidos por scroll
+│   │                      (solo en escritorio, ver más abajo)
+│   ├── compare.js         Comparador antes/después de "Resultados"
 │   ├── intro.js           Orquestador de la introducción (siempre se carga)
 │   ├── intro-scene.js     Escena 3D de la introducción (solo se descarga
 │   │                      si hace falta, ver más abajo)
@@ -82,9 +85,18 @@ Edita `data/content.js`. Cada bloque está comentado y es autoexplicativo:
 - `pillars`: los 3 pilares de la sección "Más que un corte".
 - `services`: lista de servicios con precio, duración e imagen — también
   alimenta los desplegables del asistente de reserva.
-- `team`: profesionales seleccionables en el asistente de reserva.
+- `team`: solo la lista corta de nombres seleccionables en el desplegable
+  "Profesional" del asistente de reserva.
 - `studio` / `impact`: textos e imagen de la sección "El estudio" y del
   bloque de impacto visual.
+- `transformations`: pares antes/después de la sección "Resultados"
+  (`beforeImage`, `afterImage`, `label`, `category`). Añade o quita
+  objetos para cambiar cuántas transformaciones se muestran.
+- `teamMembers`: fichas del equipo para la sección "El equipo" (`number`,
+  `name`, `role`, `bio`, `photo`, `instagram` — pon `instagram: null` para
+  ocultar el enlace en esa ficha). No confundir con `team` (arriba).
+- `experienceSteps`: los pasos de la sección "La experiencia" (`number`,
+  `title`, `text`, `image`).
 - `gallery`: imágenes y etiquetas de la galería.
 - `reviews`: testimonios (sustituir por reseñas reales con permiso del
   cliente).
@@ -133,6 +145,9 @@ descuadre:
 | `impact.svg` | Bloque de impacto visual a sangre ("Tu estilo. Tu identidad.") | 3:2 ancha |
 | `studio.svg` | Sección "El estudio" | 4:5 vertical |
 | `service-1.svg`…`service-4.svg` | Panel flotante al pasar el cursor por cada servicio | 4:5 vertical |
+| `before-1.svg` / `after-1.svg`, `before-2.svg` / `after-2.svg` | Comparador antes/después de "Resultados" | 4:5 vertical, mismo encuadre y distancia en cada par |
+| `team-1.svg`…`team-3.svg` | Fichas de "El equipo" | 4:5 vertical, mismo encuadre e iluminación entre fotos |
+| `experience-1.svg`…`experience-4.svg` | Panel fijo de "La experiencia" (uno por paso) | cuadrada |
 | `gallery-1.svg`…`gallery-8.svg` | Galería (masonry) | alternan 3:4, 1:1 y 4:3, ver el nombre del archivo |
 | `favicon.svg` | Icono del navegador | cuadrada |
 
@@ -150,17 +165,34 @@ CRM/calendario) cuando exista. El número de WhatsApp y las franjas horarias
 del `<select>` de hora se generan automáticamente desde `data/content.js`
 y desde el rango 09:00–19:00 definido al principio de `js/booking.js`.
 
-### 5. Mapa de Google
+### 5. Comparador antes/después ("Resultados")
+Cada tarjeta de `transformations` se renderiza como un `.compare__frame`
+con dos fotos superpuestas y una línea divisoria arrastrable
+(`js/compare.js`). Funciona con ratón, trackpad y pantalla táctil
+(Pointer Events) y es accesible por teclado (flechas para mover el
+divisor, Inicio/Fin para ir a los extremos, al estar implementado como
+`role="slider"`). No depende de ninguna librería.
+
+### 6. "La experiencia" (sección dirigida por scroll)
+En escritorio (≥900 px), la imagen de la derecha se queda fija
+(`position: sticky`, sin JS) mientras el usuario recorre los pasos de la
+izquierda; `js/experience.js` usa un `IntersectionObserver` para detectar
+qué paso cruza el centro de la pantalla y activa su imagen y su
+línea/número — sin scroll-jacking. En móvil, o con
+`prefers-reduced-motion` activado, se simplifica a una lista lineal
+normal y el script no interviene.
+
+### 7. Mapa de Google
 En `index.html`, dentro de `<section class="contact">`, hay un bloque de
 marcador de posición (`.contact__map-placeholder`) y, justo encima en un
 comentario, el `<iframe>` real listo para pegar con la URL de Google Maps
 Embed de la dirección del negocio.
 
-### 6. Aviso legal / política de privacidad
+### 8. Aviso legal / política de privacidad
 El enlace del asistente de reserva ("política de privacidad") apunta a
 `#` y debe enlazar a la página legal real del negocio.
 
-### 7. Introducción 3D ("Entrar en la peluquería")
+### 9. Introducción 3D ("Entrar en la peluquería")
 Al entrar por primera vez aparece una intro a pantalla completa: un busto
 estilizado con cabello y unas tijeras (geometría 3D generada por código,
 sin modelos ni texturas), que el usuario "corta" con un clic, arrastre,
@@ -219,8 +251,9 @@ cp /tmp/three/node_modules/three/build/three.module.min.js js/vendor/`.
 - **Orden de carga**: `data/content.js` y `js/render.js` se cargan sin
   `defer` al final del `<body>` (para rellenar el HTML antes de que
   cualquier otro script lo consulte); `reveal.js`, `gallery.js`,
-  `booking.js`, `faq.js` y `main.js` se cargan con `defer` y se ejecutan
-  después de que `render.js` haya reconstruido las listas del DOM.
+  `booking.js`, `faq.js`, `experience.js`, `compare.js` y `main.js` se
+  cargan con `defer` y se ejecutan después de que `render.js` haya
+  reconstruido las listas del DOM.
 - **Rendimiento**: imágenes con `loading="lazy"` (excepto el hero),
   fuentes con `font-display: swap`, sin librerías de animación externas
   (todo con CSS + `IntersectionObserver`), galería en masonry con CSS

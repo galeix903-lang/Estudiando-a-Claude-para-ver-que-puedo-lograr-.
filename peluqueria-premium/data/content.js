@@ -50,6 +50,7 @@ window.SITE_CONTENT = {
   nav: [
     { label: 'Servicios', href: '#servicios' },
     { label: 'El estudio', href: '#estudio' },
+    { label: 'El equipo', href: '#equipo' },
     { label: 'Galería', href: '#galeria' },
     { label: 'Opiniones', href: '#opiniones' },
     { label: 'Contacto', href: '#contacto' },
@@ -108,7 +109,8 @@ window.SITE_CONTENT = {
     },
   ],
 
-  // Usado en el paso "Servicio" del asistente de reserva.
+  // Solo para el desplegable "Profesional" del asistente de reserva.
+  // Para la sección "El equipo" (fotos, cargos, bio), ver `teamMembers`.
   team: [
     { id: 'sin-preferencia', name: 'Sin preferencia' },
     { id: 'profesional-01', name: 'Profesional 01' },
@@ -131,6 +133,81 @@ window.SITE_CONTENT = {
     text: 'Una experiencia diseñada alrededor de ti, de principio a fin.',
     image: 'img/impact.svg',
   },
+
+  // Sección "Resultados": comparador antes/después. Cada entrada es una
+  // transformación; añade o quita objetos para cambiar cuántas se muestran.
+  transformations: [
+    {
+      beforeImage: 'img/before-1.svg',
+      afterImage: 'img/after-1.svg',
+      label: 'Corte + Styling',
+      category: 'Corte',
+    },
+    {
+      beforeImage: 'img/before-2.svg',
+      afterImage: 'img/after-2.svg',
+      label: 'Corte + Barba',
+      category: 'Transformación',
+    },
+  ],
+
+  // Sección "El equipo". No confundir con `team` (arriba): aquella es solo
+  // la lista corta que alimenta el desplegable "Profesional" del asistente
+  // de reserva; esta es la ficha editorial completa de cada persona.
+  teamMembers: [
+    {
+      number: '01',
+      name: 'STYLIST NAME',
+      role: 'Senior Stylist',
+      bio: 'Especialista en cortes y styling.',
+      photo: 'img/team-1.svg',
+      instagram: null,
+    },
+    {
+      number: '02',
+      name: 'STYLIST NAME',
+      role: 'Colorist',
+      bio: 'Especialista en color.',
+      photo: 'img/team-2.svg',
+      instagram: null,
+    },
+    {
+      number: '03',
+      name: 'STYLIST NAME',
+      role: 'Barber',
+      bio: 'Especialista en barba y afeitado clásico.',
+      photo: 'img/team-3.svg',
+      instagram: null,
+    },
+  ],
+
+  // Sección "La experiencia": pasos que se resaltan según el scroll.
+  experienceSteps: [
+    {
+      number: '01',
+      title: 'RESERVA',
+      text: 'Elige el servicio y el momento que mejor te convenga.',
+      image: 'img/experience-1.svg',
+    },
+    {
+      number: '02',
+      title: 'LLEGA',
+      text: 'Te recibimos en un espacio pensado para ti.',
+      image: 'img/experience-2.svg',
+    },
+    {
+      number: '03',
+      title: 'TRANSFORMA',
+      text: 'Nuestro equipo trabaja cada detalle.',
+      image: 'img/experience-3.svg',
+    },
+    {
+      number: '04',
+      title: 'SAL',
+      text: 'Un resultado pensado para ti.',
+      image: 'img/experience-4.svg',
+    },
+  ],
 
   gallery: [
     { image: 'img/gallery-1.svg', label: 'Corte', span: 'tall' },

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="RESERVA">
+  <defs>
+    <linearGradient id="g-exp1" x1="8%" y1="0%" x2="92%" y2="100%">
+      <stop offset="0%" stop-color="#F7F4EE"/>
+      <stop offset="100%" stop-color="#E8E0D3"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#g-exp1)"/>
+  <rect x="0.5" y="0.5" width="1199" height="1199" fill="none" stroke="rgba(23,22,20,0.12)" stroke-width="1"/>
+  <g transform="translate(600.0 600.0)" opacity="0.65" fill="none" stroke="#B49A72" stroke-width="1.4" stroke-linecap="round">
+    <path d="M -97.2 -69.984 L -97.2 -97.2 L -69.984 -97.2"/>
+    <path d="M 69.984 -97.2 L 97.2 -97.2 L 97.2 -69.984"/>
+    <path d="M 97.2 69.984 L 97.2 97.2 L 69.984 97.2"/>
+    <path d="M -69.984 97.2 L -97.2 97.2 L -97.2 69.984"/>
+    <circle cx="0" cy="0" r="15.552000000000001"/>
+  </g>
+  <text x="50%" y="808.98" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="33.6" fill="#171614" letter-spacing="0.3" opacity="0.92">RESERVA</text>
+  <text x="50%" y="861.0600000000001" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16.8" fill="#8C8072" letter-spacing="1.6">FOTOGRAFÍA DEL PASO · [PERSONALIZAR] · 1200×1200</text>
+</svg>

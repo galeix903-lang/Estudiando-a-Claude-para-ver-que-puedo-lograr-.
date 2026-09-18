@@ -137,6 +137,7 @@
       <ul class="nav__list" data-nav-list>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#estudio">El estudio</a></li>
+        <li><a href="#equipo">El equipo</a></li>
         <li><a href="#galeria">Galería</a></li>
         <li><a href="#opiniones">Opiniones</a></li>
         <li><a href="#contacto">Contacto</a></li>
@@ -158,9 +159,10 @@
     <ul class="mobile-menu__list" data-mobile-nav-list>
       <li style="--i:0"><a href="#servicios" data-mobile-link>Servicios</a></li>
       <li style="--i:1"><a href="#estudio" data-mobile-link>El estudio</a></li>
-      <li style="--i:2"><a href="#galeria" data-mobile-link>Galería</a></li>
-      <li style="--i:3"><a href="#opiniones" data-mobile-link>Opiniones</a></li>
-      <li style="--i:4"><a href="#contacto" data-mobile-link>Contacto</a></li>
+      <li style="--i:2"><a href="#equipo" data-mobile-link>El equipo</a></li>
+      <li style="--i:3"><a href="#galeria" data-mobile-link>Galería</a></li>
+      <li style="--i:4"><a href="#opiniones" data-mobile-link>Opiniones</a></li>
+      <li style="--i:5"><a href="#contacto" data-mobile-link>Contacto</a></li>
     </ul>
   </nav>
   <a href="#reserva" class="btn btn--primary btn--block" data-mobile-link>Reservar cita</a>
@@ -290,7 +292,63 @@
     </div>
   </section>
 
-  <!-- ============ 5. EL ESTUDIO ============ -->
+  <!-- ============ 5. RESULTADOS ============ -->
+  <section class="results" id="resultados">
+    <div class="container">
+      <header class="section-head section-head--center reveal" data-reveal>
+        <p class="eyebrow eyebrow--center eyebrow--light">Resultados</p>
+        <h2 class="results__title">El detalle se nota.</h2>
+      </header>
+
+      <div class="results__grid" data-compare-list>
+        <figure class="compare reveal" data-reveal>
+          <div class="compare__frame" data-compare tabindex="0" role="slider" aria-label="Comparar antes y después: Corte + Styling" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img class="compare__img compare__img--after" src="img/after-1.svg" alt="Después — Corte + Styling" loading="lazy" decoding="async">
+            <div class="compare__before-wrap" data-compare-before-wrap>
+              <img class="compare__img compare__img--before" src="img/before-1.svg" alt="Antes — Corte + Styling" loading="lazy" decoding="async">
+            </div>
+            <span class="compare__tag compare__tag--before">Antes</span>
+            <span class="compare__tag compare__tag--after">Después</span>
+            <div class="compare__handle" data-compare-handle aria-hidden="true">
+              <span class="compare__handle-line"></span>
+              <span class="compare__handle-grip">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6 3 12l5 6M16 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </div>
+          <figcaption class="compare__meta">
+            <span class="compare__label">Corte + Styling</span>
+            <span class="compare__category">Corte</span>
+          </figcaption>
+        </figure>
+
+        <figure class="compare reveal" data-reveal>
+          <div class="compare__frame" data-compare tabindex="0" role="slider" aria-label="Comparar antes y después: Corte + Barba" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img class="compare__img compare__img--after" src="img/after-2.svg" alt="Después — Corte + Barba" loading="lazy" decoding="async">
+            <div class="compare__before-wrap" data-compare-before-wrap>
+              <img class="compare__img compare__img--before" src="img/before-2.svg" alt="Antes — Corte + Barba" loading="lazy" decoding="async">
+            </div>
+            <span class="compare__tag compare__tag--before">Antes</span>
+            <span class="compare__tag compare__tag--after">Después</span>
+            <div class="compare__handle" data-compare-handle aria-hidden="true">
+              <span class="compare__handle-line"></span>
+              <span class="compare__handle-grip">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6 3 12l5 6M16 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </div>
+          <figcaption class="compare__meta">
+            <span class="compare__label">Corte + Barba</span>
+            <span class="compare__category">Transformación</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <p class="placeholder-note center">[PERSONALIZAR: sustituir por transformaciones reales, con permiso del cliente]</p>
+    </div>
+  </section>
+
+  <!-- ============ 6. EL ESTUDIO ============ -->
   <section class="studio" id="estudio">
     <div class="container studio__grid">
       <div class="studio__media reveal" data-reveal>
@@ -308,7 +366,7 @@
 
         <dl class="studio__facts reveal" data-reveal>
           <div class="studio__fact">
-            <dt data-bind="business.city">Barcelona</dt>
+            <dt data-bind="business.city">[Ciudad]</dt>
             <dd>Ubicación <span class="placeholder-tag">dato de ejemplo</span></dd>
           </div>
           <div class="studio__fact">
@@ -320,7 +378,103 @@
     </div>
   </section>
 
-  <!-- ============ 6. GALERÍA ============ -->
+  <!-- ============ 7. LA EXPERIENCIA ============ -->
+  <section class="exp" id="experiencia">
+    <div class="container">
+      <header class="section-head reveal" data-reveal>
+        <p class="eyebrow">La experiencia</p>
+        <h2>Todo empieza antes de sentarte en la silla.</h2>
+      </header>
+    </div>
+
+    <div class="exp__scroller">
+      <ol class="exp__steps" data-experience-list>
+        <li class="exp__step is-current" data-exp-step="1">
+          <span class="exp__step-line" aria-hidden="true"></span>
+          <span class="exp__step-num">01</span>
+          <h3>RESERVA</h3>
+          <p>Elige el servicio y el momento que mejor te convenga.</p>
+        </li>
+        <li class="exp__step" data-exp-step="2">
+          <span class="exp__step-line" aria-hidden="true"></span>
+          <span class="exp__step-num">02</span>
+          <h3>LLEGA</h3>
+          <p>Te recibimos en un espacio pensado para ti.</p>
+        </li>
+        <li class="exp__step" data-exp-step="3">
+          <span class="exp__step-line" aria-hidden="true"></span>
+          <span class="exp__step-num">03</span>
+          <h3>TRANSFORMA</h3>
+          <p>Nuestro equipo trabaja cada detalle.</p>
+        </li>
+        <li class="exp__step" data-exp-step="4">
+          <span class="exp__step-line" aria-hidden="true"></span>
+          <span class="exp__step-num">04</span>
+          <h3>SAL</h3>
+          <p>Un resultado pensado para ti.</p>
+        </li>
+      </ol>
+
+      <div class="exp__sticky">
+        <div class="exp__media" data-experience-media>
+          <img class="is-active" src="img/experience-1.svg" loading="eager" decoding="async" alt="RESERVA">
+          <img src="img/experience-2.svg" loading="lazy" decoding="async" alt="LLEGA">
+          <img src="img/experience-3.svg" loading="lazy" decoding="async" alt="TRANSFORMA">
+          <img src="img/experience-4.svg" loading="lazy" decoding="async" alt="SAL">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. EL EQUIPO ============ -->
+  <section class="team" id="equipo">
+    <div class="container">
+      <header class="section-head reveal" data-reveal>
+        <p class="eyebrow">El equipo</p>
+        <h2>Personas. Técnica. Estilo.</h2>
+      </header>
+
+      <ul class="team__grid" data-team-list>
+        <li class="team__member reveal" data-reveal>
+          <div class="team__photo-wrap" tabindex="0">
+            <span class="team__number">01</span>
+            <img class="team__photo" src="img/team-1.svg" loading="lazy" decoding="async" alt="STYLIST NAME, Senior Stylist">
+            <div class="team__caption">
+              <p class="team__name">STYLIST NAME</p>
+              <p class="team__role">Senior Stylist</p>
+              <p class="team__bio">Especialista en cortes y styling.</p>
+            </div>
+          </div>
+        </li>
+        <li class="team__member reveal" data-reveal>
+          <div class="team__photo-wrap" tabindex="0">
+            <span class="team__number">02</span>
+            <img class="team__photo" src="img/team-2.svg" loading="lazy" decoding="async" alt="STYLIST NAME, Colorist">
+            <div class="team__caption">
+              <p class="team__name">STYLIST NAME</p>
+              <p class="team__role">Colorist</p>
+              <p class="team__bio">Especialista en color.</p>
+            </div>
+          </div>
+        </li>
+        <li class="team__member reveal" data-reveal>
+          <div class="team__photo-wrap" tabindex="0">
+            <span class="team__number">03</span>
+            <img class="team__photo" src="img/team-3.svg" loading="lazy" decoding="async" alt="STYLIST NAME, Barber">
+            <div class="team__caption">
+              <p class="team__name">STYLIST NAME</p>
+              <p class="team__role">Barber</p>
+              <p class="team__bio">Especialista en barba y afeitado clásico.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <p class="placeholder-note center">[PERSONALIZAR: sustituir por el equipo real, fotografías y especialidades]</p>
+    </div>
+  </section>
+
+  <!-- ============ 9. GALERÍA ============ -->
   <section class="gallery" id="galeria">
     <div class="container">
       <header class="section-head reveal" data-reveal>
@@ -375,7 +529,7 @@
     <button class="lightbox__nav lightbox__nav--next" data-lightbox-next aria-label="Imagen siguiente">›</button>
   </div>
 
-  <!-- ============ 7. RESERVA ============ -->
+  <!-- ============ 10. RESERVA ============ -->
   <section class="booking" id="reserva">
     <div class="container">
       <header class="section-head section-head--center reveal" data-reveal>
@@ -473,7 +627,7 @@
     </div>
   </section>
 
-  <!-- ============ 8. OPINIONES ============ -->
+  <!-- ============ 11. OPINIONES ============ -->
   <section class="testimonials" id="opiniones">
     <div class="container">
       <header class="section-head reveal" data-reveal>
@@ -507,7 +661,7 @@
     </div>
   </section>
 
-  <!-- ============ 9. PREGUNTAS FRECUENTES ============ -->
+  <!-- ============ 12. PREGUNTAS FRECUENTES ============ -->
   <section class="faq" id="faq">
     <div class="container container--narrow">
       <header class="section-head reveal" data-reveal>
@@ -565,7 +719,7 @@
     </div>
   </section>
 
-  <!-- ============ 10. CONTACTO ============ -->
+  <!-- ============ 13. CONTACTO ============ -->
   <section class="contact" id="contacto">
     <div class="container contact__grid">
       <div class="contact__info reveal" data-reveal>
@@ -620,7 +774,7 @@
   <div class="container site-footer__grid">
     <div class="site-footer__brand">
       <a href="#hero" class="brand brand--footer" data-bind="business.name">STUDIO NAME</a>
-      <p data-bind="business.city">Barcelona</p>
+      <p data-bind="business.city">[Ciudad]</p>
       <p data-bind="contact.hoursShort">L–V 09:00–20:00</p>
     </div>
 
@@ -659,6 +813,8 @@
 <script src="js/gallery.js" defer></script>
 <script src="js/booking.js" defer></script>
 <script src="js/faq.js" defer></script>
+<script src="js/experience.js" defer></script>
+<script src="js/compare.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>

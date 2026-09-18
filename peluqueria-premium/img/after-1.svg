@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1200" width="960" height="1200" role="img" aria-label="Después">
+  <defs>
+    <linearGradient id="g-cmpa1" x1="8%" y1="0%" x2="92%" y2="100%">
+      <stop offset="0%" stop-color="#F7F4EE"/>
+      <stop offset="100%" stop-color="#E8E0D3"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="1200" fill="url(#g-cmpa1)"/>
+  <rect x="0.5" y="0.5" width="959" height="1199" fill="none" stroke="rgba(23,22,20,0.12)" stroke-width="1"/>
+  <g transform="translate(700.8 600.0)" opacity="0.65" fill="none" stroke="#B49A72" stroke-width="1.4" stroke-linecap="round">
+    <path d="M -86.39999999999999 -62.20799999999999 L -86.39999999999999 -86.39999999999999 L -62.20799999999999 -86.39999999999999"/>
+    <path d="M 62.20799999999999 -86.39999999999999 L 86.39999999999999 -86.39999999999999 L 86.39999999999999 -62.20799999999999"/>
+    <path d="M 86.39999999999999 62.20799999999999 L 86.39999999999999 86.39999999999999 L 62.20799999999999 86.39999999999999"/>
+    <path d="M -62.20799999999999 86.39999999999999 L -86.39999999999999 86.39999999999999 L -86.39999999999999 62.20799999999999"/>
+    <circle cx="0" cy="0" r="13.823999999999998"/>
+  </g>
+  <text x="700.8" y="785.76" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="26.9" fill="#171614" letter-spacing="0.3" opacity="0.92">Después</text>
+  <text x="700.8" y="827.424" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13.4" fill="#8C8072" letter-spacing="1.6">DESPUÉS DE LA TRANSFORMACIÓN · 960×1200</text>
+</svg>
